@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAYILRAJ R - Firmware Engineer| IOT Enthusiast</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>tailwind.config={theme:{extend:{colors:{primary:'#2D5A87',secondary:'#4A4A4A'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.0/echarts.min.js"></script>
+    <style>
+        :where([class^="ri-"])::before { content: "\f3c2"; }
+        body {
+            font-family: 'Roboto', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .hero-bg {
+            background-image: url('https://readdy.ai/api/search-image?query=modern%20tech%20background%20with%20gradient%20blue%20and%20gray%20colors%2C%20abstract%20digital%20pattern%2C%20clean%20minimalist%20design%2C%20suitable%20for%20technology%20professional%20website%20hero%20section%2C%20with%20space%20on%20left%20side%20for%20text&width=1920&height=1080&seq=1&orientation=landscape');
+            background-size: cover;
+            background-position: center right;
+        }
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        .certification-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        .progress-bar {
+            height: 8px;
+            border-radius: 4px;
+            background-color: #e5e7eb;
+            overflow: hidden;
+        }
+        .progress-value {
+            height: 100%;
+            border-radius: 4px;
+            background-color: #2D5A87;
+        }
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #2D5A87;
+        }
+        .custom-checkbox {
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #2D5A87;
+            border-radius: 4px;
+            position: relative;
+            cursor: pointer;
+        }
+        .custom-checkbox:checked {
+            background-color: #2D5A87;
+        }
+        .custom-checkbox:checked::after {
+            content: '';
+            position: absolute;
+            left: 6px;
+            top: 2px;
+            width: 6px;
+            height: 12px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header/Navigation -->
+    <header class="fixed top-0 left-0 w-full bg-white bg-opacity-90 backdrop-blur-sm shadow-sm z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-primary">MAYILRAJ R</a>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#home" class="text-secondary hover:text-primary transition-colors">Home</a>
+                <a href="#about" class="text-secondary hover:text-primary transition-colors">About</a>
+                <a href="#skills" class="text-secondary hover:text-primary transition-colors">Skills</a>
+                <a href="#projects" class="text-secondary hover:text-primary transition-colors">Projects</a>
+                <a href="#certifications" class="text-secondary hover:text-primary transition-colors">Certifications</a>
+                <a href="#experience" class="text-secondary hover:text-primary transition-colors">Experience</a>
+                <a href="#education" class="text-secondary hover:text-primary transition-colors">Education</a>
+                <a href="#contact" class="text-secondary hover:text-primary transition-colors">Contact</a>
+            </nav>
+            <button class="md:hidden w-10 h-10 flex items-center justify-center text-secondary">
+                <i class="ri-menu-line ri-lg"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation Menu (Hidden by default) -->
+    <div class="fixed inset-0 bg-white z-50 hidden flex-col pt-20 px-6">
+        <button class="absolute top-6 right-6 w-10 h-10 flex items-center justify-center text-secondary">
+            <i class="ri-close-line ri-lg"></i>
+        </button>
+        <nav class="flex flex-col space-y-6 text-lg">
+            <a href="#home" class="text-secondary hover:text-primary transition-colors py-2">Home</a>
+            <a href="#about" class="text-secondary hover:text-primary transition-colors py-2">About</a>
+            <a href="#skills" class="text-secondary hover:text-primary transition-colors py-2">Skills</a>
+            <a href="#projects" class="text-secondary hover:text-primary transition-colors py-2">Projects</a>
+            <a href="#certifications" class="text-secondary hover:text-primary transition-colors py-2">Certifications</a>
+            <a href="#experience" class="text-secondary hover:text-primary transition-colors py-2">Experience</a>
+            <a href="#education" class="text-secondary hover:text-primary transition-colors py-2">Education</a>
+            <a href="#contact" class="text-secondary hover:text-primary transition-colors py-2">Contact</a>
+        </nav>
+    </div>
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg min-h-screen flex items-center pt-20">
+        <div class="container mx-auto px-6">
+            <div class="w-full md:w-1/2 bg-white bg-opacity-90 backdrop-blur-sm p-10 rounded-lg shadow-lg">
+                <h1 class="text-5xl font-bold text-primary mb-4">MAYILRAJ R</h1>
+                <h2 class="text-2xl text-secondary mb-6">Firmware Engineer | IoT Enthusiast</h2>
+              
+                <a href="#" class="inline-flex items-center bg-primary text-white px-6 py-3 !rounded-button hover:bg-opacity-90 transition-colors whitespace-nowrap">
+                    <i class="ri-download-line ri-lg mr-2"></i>
+                    Download Resume
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center text-primary mb-16">About Me</h2>
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="w-full md:w-1/3 flex justify-center">
+                    <div class="w-64 h-64 rounded-full overflow-hidden border-4 border-primary shadow-lg">
+                        <img src="https://readdy.ai/api/search-image?query=professional%20portrait%20of%20a%20young%20male%20Indian%20tech%20professional%20with%20a%20friendly%20smile%2C%20wearing%20business%20casual%20attire%2C%20clean%20background%2C%20high%20quality%20professional%20headshot&width=500&height=500&seq=2&orientation=squarish" alt="Mayilraj R" class="w-full h-full object-cover object-top">
+                    </div>
+                </div>
+                <div class="w-full md:w-2/3">
+                    <p class="text-lg text-gray-700 mb-6">
+                        I am a passionate Firmware Engineer with expertise in embedded systems and IoT technologies. With a strong foundation in low-level system design, I specialize in developing efficient, reliable firmware solutions for various hardware platforms.
+                    </p>
+                    <p class="text-lg text-gray-700 mb-6">
+                        My journey in the world of embedded systems began during my undergraduate studies, where I discovered my passion for working at the intersection of hardware and software. Since then, I've been continuously expanding my knowledge and skills in microcontroller programming, communication protocols, and IoT applications.
+                    </p>
+                    <p class="text-lg text-gray-700">
+                        I thrive on solving complex technical challenges and am particularly interested in developing innovative solutions that bridge the gap between hardware capabilities and software requirements. My goal is to contribute to the advancement of embedded technologies that make a positive impact on people's lives.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills & Tools Section -->
+    <section id="skills" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center text-primary mb-16">Skills & Tools</h2>
+            
+            <!-- Programming Languages -->
+            <div class="mb-16">
+                <h3 class="text-2xl font-semibold text-secondary mb-8">Programming Languages</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="skill-card bg-white p-6 rounded-lg shadow-md transition-all duration-300">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mr-4">
+                                <i class="ri-code-s-slash-line ri-lg text-primary"></i>
+                            </div>
+                            <h4 class="text-xl font-medium">C</h4>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-value" style="width: 95%"></div>
+                        </div>
+                    </div>
+                    
+                   
+                    
+                    <div class="skill-card bg-white p-6 rounded-lg shadow-md transition-all duration-300">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mr-4">
+                                <i class="ri-code-s-slash-line ri-lg text-primary"></i>
+                            </div>
+                            <h4 class="text-xl font-medium">Embedded C</h4>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-value" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-card bg-white p-6 rounded-lg shadow-md transition-all duration-300">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mr-4">
+                                <i class="ri-python-line ri-lg text-primary"></i>
+                            </div>
+                            <h4 class="text-xl font-medium">Python</h4>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-value" style="width: 80%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Protocols & Technologies -->
+            <div class="mb-16">
+                <h3 class="text-2xl font-semibold text-secondary mb-8">Protocols & Technologies</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="skill-card bg-white p-6 rounded-lg shadow-md transition-all duration-300">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mr-4">
+                                <i class="ri-wifi-line ri-lg text-primary"></i>
+                            </div>
+                            <h4 class="text-xl font-medium">IoT</h4>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-value" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-card bg-white p-6 rounded-lg shadow-md transition-all duration-300">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mr-4">
+                                <i class="ri-exchange-line ri-lg text-primary"></i>
+                            </div>
+                            <h4 class="text-xl font-medium">SPI</h4>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-value" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-card bg-white p-6 rounded-lg shadow-md transition-all duration-300">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mr-4">
+                                <i class="ri-exchange-line ri-lg text-primary"></i>
+                            </div>
+                            <h4 class="text-xl font-medium">I2C</h4>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-value" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-card bg-white p-6 rounded-lg shadow-md transition-all duration-300">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mr-4">
+                                <i class="ri-exchange-line ri-lg text-primary"></i>
+                            </div>
+                            <h4 class="text-xl font-medium">UART</h4>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-value" style="width: 95%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Hardware & Equipment -->
+            <div class="mb-16">
+                <h3 class="text-2xl font-semibold text-secondary mb-8">Hardware & Equipment</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="skill-card bg-white p-6 rounded-lg shadow-md transition-all duration-300">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mr-4">
+                                <i class="ri-cpu-line ri-lg text-primary"></i>
+                            </div>
+                            <h4 class="text-xl font-medium">Arduino</h4>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-value" style="width: 95%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-card bg-white p-6 rounded-lg shadow-md transition-all duration-300">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mr-4">
+                                <i class="ri-cpu-line ri-lg text-primary"></i>
+                            </div>
+                            <h4 class="text-xl font-medium">Raspberry Pi</h4>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-value" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-card bg-white p-6 rounded-lg shadow-md transition-all duration-300">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mr-4">
+                                <i class="ri-sensor-line ri-lg text-primary"></i>
+                            </div>
+                            <h4 class="text-xl font-medium">Sensors & Actuators</h4>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-value" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-card bg-white p-6 rounded-lg shadow-md transition-all duration-300">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mr-4">
+                                <i class="ri-tools-line ri-lg text-primary"></i>
+                            </div>
+                            <h4 class="text-xl font-medium">Electronic Troubleshooting</h4>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-value" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-card bg-white p-6 rounded-lg shadow-md transition-all duration-300">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mr-4">
+                                <i class="ri-tools-line ri-lg text-primary"></i>
+                            </div>
+                            <h4 class="text-xl font-medium">Equipment Repair</h4>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-value" style="width: 80%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Development Tools -->
+            <div>
+                <h3 class="text-2xl font-semibold text-secondary mb-8">Development Tools</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="skill-card bg-white p-6 rounded-lg shadow-md transition-all duration-300">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mr-4">
+                                <i class="ri-terminal-box-line ri-lg text-primary"></i>
+                            </div>
+                            <h4 class="text-xl font-medium">Keil uVision</h4>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-value" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-card bg-white p-6 rounded-lg shadow-md transition-all duration-300">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mr-4">
+                                <i class="ri-terminal-box-line ri-lg text-primary"></i>
+                            </div>
+                            <h4 class="text-xl font-medium">Thonny</h4>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-value" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-card bg-white p-6 rounded-lg shadow-md transition-all duration-300">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mr-4">
+                                <i class="ri-terminal-box-line ri-lg text-primary"></i>
+                            </div>
+                            <h4 class="text-xl font-medium">Arduino IDE</h4>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-value" style="width: 95%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-card bg-white p-6 rounded-lg shadow-md transition-all duration-300">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mr-4">
+                                <i class="ri-git-branch-line ri-lg text-primary"></i>
+                            </div>
+                            <h4 class="text-xl font-medium">Git</h4>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-value" style="width: 80%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center text-primary mb-16">Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <!-- Project 1 -->
+                <div class="project-card bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300">
+                    <div class="h-64 overflow-hidden">
+                        <img src="images.jpeg" alt="Automated%20Hand%20Sanitizer%20Dispenser" class="w-full h-full object-cover object-top">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-primary mb-2">Automated Water Pump for Plant</h3>
+                        <p class="text-gray-700 mb-4">
+                            This project is a smart irrigation system designed to automatically water plants based on real-time soil moisture levels, reducing the need for manual intervention and conserving water. Built using an Arduino Uno, the system uses a soil moisture sensor to detect dryness in the soil and activates a mini water pump via a relay module when the moisture level falls below a predefined threshold.                        </p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="bg-primary bg-opacity-10 text-primary px-3 py-1 rounded-full text-sm">Arduino UNO</span>
+                            <span class="bg-primary bg-opacity-10 text-primary px-3 py-1 rounded-full text-sm">Soil sensor</span>
+                            <span class="bg-primary bg-opacity-10 text-primary px-3 py-1 rounded-full text-sm">Relay</span>
+                            <span class="bg-primary bg-opacity-10 text-primary px-3 py-1 rounded-full text-sm"></span>
+                        </div>
+                        <a href="https://github.com/Mayilraj13/IoT-Automation/tree/main/Automated%20Water%20Pump%20for%20Plants" class="inline-flex items-center text-primary hover:underline">
+                            Learn More
+                            <i class="ri-arrow-right-line ri-sm ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="project-card bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300">
+                    <div class="h-64 overflow-hidden">
+                        <img src="gas.jpg" alt="Gas Leakage Systems" class="w-full h-full object-cover object-top">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-primary mb-2">Gas Leakage Detection</h3>
+                        <p class="text-gray-700 mb-4">
+                            This project is a safety-focused system designed to detect hazardous gas leaks using an MQ-series gas sensor. The sensor continuously monitors the air quality and alerts users through a buzzer and LED when gas concentration exceeds safe levels. An Arduino Uno processes the sensor data and triggers alarms instantly. It provides early warnings to prevent fire accidents and ensures home and industrial safety. This project deepened my skills in sensor integration, real-time monitoring, and IoT safety applications.                        </p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="bg-primary bg-opacity-10 text-primary px-3 py-1 rounded-full text-sm">Arduino IDE</span>
+                            <span class="bg-primary bg-opacity-10 text-primary px-3 py-1 rounded-full text-sm">Embedded C</span>
+                            <span class="bg-primary bg-opacity-10 text-primary px-3 py-1 rounded-full text-sm">Arduino</span>
+                            <span class="bg-primary bg-opacity-10 text-primary px-3 py-1 rounded-full text-sm">MQ-2 Gas Sensor</span>
+                        </div>
+                        <a href="https://github.com/Mayilraj13/IoT-Sensor-Network/tree/main/Gas%20Leakage%20Detection" class="inline-flex items-center text-primary hover:underline">
+                            Learn More
+                            <i class="ri-arrow-right-line ri-sm ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="project-card bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300">
+                    <div class="h-64 overflow-hidden">
+                        <img src="sanitizer.jpg" alt="Automated Automated Sanitizer Dispenser" class="w-full h-full object-cover object-top">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-primary mb-2">Automated Hand Sanitizer Dispenser</h3>
+                        <p class="text-gray-700 mb-4">
+                            This project is a touchless hand sanitizer dispenser designed to promote hygiene and reduce the spread of germs. Using an Arduino Uno and an ultrasonic sensor, the system detects the presence of a hand and automatically activates a mini water pump to dispense sanitizer. The setup ensures contactless operation, making it ideal for public places, offices, and homes. It strengthened my skills in sensor integration, automation, and real-world IoT applications. The project highlights the importance of smart solutions in healthcare and public safety.                        </p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="bg-primary bg-opacity-10 text-primary px-3 py-1 rounded-full text-sm">Arduino</span>
+                            <span class="bg-primary bg-opacity-10 text-primary px-3 py-1 rounded-full text-sm">Embedded C</span>
+                            <span class="bg-primary bg-opacity-10 text-primary px-3 py-1 rounded-full text-sm">Arduino Uno</span>
+                            <span class="bg-primary bg-opacity-10 text-primary px-3 py-1 rounded-full text-sm">Ultrasonic Sensor (HC-SR04)</span>
+                            <span class="bg-primary bg-opacity-10 text-primary px-3 py-1 rounded-full text-sm">DC Pump </span>
+
+                        </div>
+                        <a href="https://github.com/Mayilraj13/IoT-Automation/tree/main/Automated%20Hand%20Sanitizer%20Dispenser" class="inline-flex items-center text-primary hover:underline">
+                            Learn More
+                            <i class="ri-arrow-right-line ri-sm ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Project 4 -->
+                <div class="project-card bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300">
+                    <div class="h-64 overflow-hidden">
+                        <img src="car.jpg" alt="Firmware Debug Tool" class="w-full h-full object-cover object-top">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-primary mb-2"> Automated Object Detection Car using IoT</h3>
+                        <p class="text-gray-700 mb-4">
+                            This project features a smart robotic car capable of detecting and avoiding obstacles automatically using IoT technology. Built with an Arduino Uno, ultrasonic sensors, and motor drivers, the car senses objects in its path and intelligently changes direction to avoid collisions. Real-time sensor data can be monitored or transmitted using IoT platforms for analysis and remote control. The project enhanced my skills in robotics, IoT communication, obstacle detection, and automation. It showcases how smart mobility solutions can be developed for future transportation and robotics systems.                        </p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="bg-primary bg-opacity-10 text-primary px-3 py-1 rounded-full text-sm">Embedded C</span>
+                            <span class="bg-primary bg-opacity-10 text-primary px-3 py-1 rounded-full text-sm">Arduino IDE</span>
+                            <span class="bg-primary bg-opacity-10 text-primary px-3 py-1 rounded-full text-sm">DC motor</span>
+                            <span class="bg-primary bg-opacity-10 text-primary px-3 py-1 rounded-full text-sm">L298N Motor Driver Module</span>
+                        </div>
+                        <a href="#" class="inline-flex items-center text-primary hover:underline">
+                            Learn More
+                            <i class="ri-arrow-right-line ri-sm ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center text-primary mb-16">Certifications</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Certification 1 -->
+                <div class="certification-card bg-white rounded-lg shadow-md p-6 transition-all duration-300">
+                    <div class="w-16 h-16 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mb-6">
+                        <i class="ri-award-line ri-2x text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-2">Introduction of IoT</h3>
+                    <p class="text-gray-600 mb-2">Simplilearn</p>
+                    <p class="text-gray-700 mb-4">
+                        I finished studying the "Introduction to IoT" course at Simplilearn with a good understanding of IoT concepts.
+                        The course touched on IoT architecture, sensors, connectivity, and practical applications.
+                        I presented my portfolio throughout the course and had useful feedback from mentors.
+                        This assisted me in developing the presentation of my IoT projects and technical skills.
+                        The course enhanced my passion and confidence in creating IoT-based solutions.                    </p>
+                    <a href="" class="inline-flex items-center text-primary hover:underline">
+                        View Certificate
+                        <i class="ri-external-link-line ri-sm ml-1"></i>
+                    </a>
+                </div>
+                
+                <!-- Certification 2 -->
+                <div class="certification-card bg-white rounded-lg shadow-md p-6 transition-all duration-300">
+                    <div class="w-16 h-16 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mb-6">
+                        <i class="ri-award-line ri-2x text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-2">Python</h3>
+                    <p class="text-gray-600 mb-2">GUVI Geeks network,IITM Research Park</p>
+                    <p class="text-gray-700 mb-4">
+                        I took a course in Python programming at GUVI and developed good foundational and hands-on coding skills.
+                        The course included important topics such as data types, functions, OOPs, file handling, and basic algorithms.
+                        I also presented my portfolio throughout the course, getting feedback from peers and instructors.
+                        This assisted me in enhancing my project presentation and technical abilities.
+                        Completing the course increased my confidence in applying Python to actual applications. 
+                    </p>
+                    <a href="https://www.guvi.in/share-certificate/pZ9074V7B7b150237N" class="inline-flex items-center text-primary hover:underline">
+                        View Certificate
+                        <i class="ri-external-link-line ri-sm ml-1"></i>
+                    </a>
+                </div>
+                
+                <!-- Certification 3 -->
+                <div class="certification-card bg-white rounded-lg shadow-md p-6 transition-all duration-300">
+                    <div class="w-16 h-16 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mb-6">
+                        <i class="ri-award-line ri-2x text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-2">MERN Stack HelppBuild Real</h3>
+                    <p class="text-gray-600 mb-2">GUVI Geeks network,IITM Research Park </p>
+                    <p class="text-gray-700 mb-4">
+                        I watched a GUVI webinar titled "How MERN Stack Helps Build Real-World Applications."
+The session delineated how MongoDB, Express.js, React.js, and Node.js interacted in web development.
+I presented my portfolio to professionals in the field and gained insightful criticism.
+The webinar enhanced my knowledge about building full-stack projects.
+It inspired me to become better at creating practical applications.
+                    </p>
+                    <a href="https://www.guvi.in/share-certificate/7e54Y3836178rn7Qu7" class="inline-flex items-center text-primary hover:underline">
+                        View Certificate
+                        <i class="ri-external-link-line ri-sm ml-1"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center text-primary mb-16">Experience</h2>
+            
+            <div class="relative border-l-2 border-primary pl-8 ml-4 md:ml-12">
+                
+                
+                <!-- Experience 1 -->
+                <div class="mb-12 relative">
+                    <div class="absolute -left-10 w-6 h-6 bg-primary rounded-full border-4 border-white"></div>
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+                            <h3 class="text-xl font-bold text-primary">IoT  junior Intern</h3>
+                            <div class="flex items-center text-gray-600 mt-2 md:mt-0">
+                                <i class="ri-calendar-line ri-sm mr-1"></i>
+                                <span>Feb 2025 - Feb 2025</span>
+                            </div>
+                        </div>
+                        <h4 class="text-lg font-medium text-secondary mb-4">Biglearn</h4>
+                        <p class="text-gray-700 mb-4">
+                            Assisted in research projects focused on developing innovative IoT solutions for Automated Object Detection Vehicle and Smart Agriculture Applications.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-primary bg-opacity-10 text-primary px-3 py-1 rounded-full text-sm">Arduino</span>
+                            <span class="bg-primary bg-opacity-10 text-primary px-3 py-1 rounded-full text-sm">Raspberry Pi</span>
+                            <span class="bg-primary bg-opacity-10 text-primary px-3 py-1 rounded-full text-sm">Project Resource Planning</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Experience 2 -->
+                <div class="relative">
+                    <div class="absolute -left-10 w-6 h-6 bg-primary rounded-full border-4 border-white"></div>
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+                            <h3 class="text-xl font-bold text-primary">Technician Apprentice</h3>
+                            <div class="flex items-center text-gray-600 mt-2 md:mt-0">
+                                <i class="ri-calendar-line ri-sm mr-1"></i>
+                                <span>Jul 2022 - Jul 2023</span>
+                            </div>
+                        </div>
+                        <h4 class="text-lg font-medium text-secondary mb-4">Apollo Tyres</h4>
+                        <p class="text-gray-700 mb-4">
+                            As an Electrical Trainee at Apollo Tyres, I supported the installation, maintenance, and troubleshooting of motors, panels, and control systems.I performed preventive maintenance on PLCs, VFDs, and industrial equipment, ensuring smooth production.I read wiring diagrams, handled repairs, and maintained safety standards during operations.
+I collaborated with other technical teams to solve electrical and automation issues.
+
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-primary bg-opacity-10 text-primary px-3 py-1 rounded-full text-sm">Electronic troubleshooting </span>
+                            <span class="bg-primary bg-opacity-10 text-primary px-3 py-1 rounded-full text-sm">Equipment Repair</span>
+                            <span class="bg-primary bg-opacity-10 text-primary px-3 py-1 rounded-full text-sm">support maintenance</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Education Section -->
+    <section id="education" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center text-primary mb-16">Education</h2>
+            
+            <div class="max-w-3xl mx-auto">
+                <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+                    <div class="flex flex-col md:flex-row">
+                        <div class="w-full md:w-1/4 flex justify-center items-start mb-6 md:mb-0">
+                            <div class="w-20 h-20 flex items-center justify-center bg-primary bg-opacity-10 rounded-full">
+                                <i class="ri-building-4-line ri-2x text-primary"></i>
+                            </div>
+                        </div>
+                        <div class="w-full md:w-3/4">
+                            <h3 class="text-xl font-bold text-primary mb-2">Bachelor of Technology in Information Technology </h3>
+                            <h4 class="text-lg font-medium text-secondary mb-4">University College of Engineering</h4>
+                            <div class="flex items-center text-gray-600 mb-4">
+                                <i class="ri-calendar-line ri-sm mr-1"></i>
+                                <span>2023 - 2026 (Expected)</span>
+                            </div>
+                            <p class="text-gray-700 mb-4">
+                                Specializing in embedded systems and IoT technologies. Maintaining a CGPA of 7.0/10.
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-primary bg-opacity-10 text-primary px-3 py-1 rounded-full text-sm">Cloud Basics </span>
+                                <span class="bg-primary bg-opacity-10 text-primary px-3 py-1 rounded-full text-sm">Communication Protocols</span>
+                                <span class="bg-primary bg-opacity-10 text-primary px-3 py-1 rounded-full text-sm">IoT</span>
+                                <span class="bg-primary bg-opacity-10 text-primary px-3 py-1 rounded-full text-sm">Integration Methods</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="max-w-3xl mx-auto">
+                    <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+                        <div class="flex flex-col md:flex-row">
+                            <div class="w-full md:w-1/4 flex justify-center items-start mb-6 md:mb-0">
+                                <div class="w-20 h-20 flex items-center justify-center bg-primary bg-opacity-10 rounded-full">
+                                    <i class="ri-building-4-line ri-2x text-primary"></i>
+                                </div>
+                            </div>
+                            <div class="w-full md:w-3/4">
+                                <h3 class="text-xl font-bold text-primary mb-2">Diplomo in Electronics and communication engineering </h3>
+                                <h4 class="text-lg font-medium text-secondary mb-4">Thevanesam Eruthaya Ammal Polytechnic College </h4>
+                                <div class="flex items-center text-gray-600 mb-4">
+                                    <i class="ri-calendar-line ri-sm mr-1"></i>
+                                    <span>2020- 2022</span>
+                                </div>
+                                <p class="text-gray-700 mb-4">
+                                    Specializing in embedded systems and IoT technologies. Maintaining a CGPA of 9.10/10.
+                                </p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="bg-primary bg-opacity-10 text-primary px-3 py-1 rounded-full text-sm">Embedded Systems</span>
+                                    <span class="bg-primary bg-opacity-10 text-primary px-3 py-1 rounded-full text-sm">Digital Electronics</span>
+                                    <span class="bg-primary bg-opacity-10 text-primary px-3 py-1 rounded-full text-sm">Hardware Basics</span>
+                                   
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <div class="flex flex-col md:flex-row">
+                        <div class="w-full md:w-1/4 flex justify-center items-start mb-6 md:mb-0">
+                            <div class="w-20 h-20 flex items-center justify-center bg-primary bg-opacity-10 rounded-full">
+                                <i class="ri-building-line ri-2x text-primary"></i>
+                            </div>
+                        </div>
+                        <div class="w-full md:w-3/4">
+                            <h3 class="text-xl font-bold text-primary mb-2">Higher Secondary Education</h3>
+                            <h4 class="text-lg font-medium text-secondary mb-4">Government Higher Secondary School</h4>
+                            <div class="flex items-center text-gray-600 mb-4">
+                                <i class="ri-calendar-line ri-sm mr-1"></i>
+                                <span>2018 - 2020</span>
+                            </div>
+                            <p class="text-gray-700 mb-4">
+                                Completed with 60% in Physics, Chemistry, and Mathematics. 
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-primary bg-opacity-10 text-primary px-3 py-1 rounded-full text-sm">Physics</span>
+                                <span class="bg-primary bg-opacity-10 text-primary px-3 py-1 rounded-full text-sm">Chemistry</span>
+                                <span class="bg-primary bg-opacity-10 text-primary px-3 py-1 rounded-full text-sm">Mathematics</span>
+                                <span class="bg-primary bg-opacity-10 text-primary px-3 py-1 rounded-full text-sm">Biology</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center text-primary mb-16">Contact Me</h2>
+            
+            <div class="flex flex-col md:flex-row gap-10">
+                <!-- Contact Form -->
+                <div class="w-full md:w-1/2 bg-gray-50 rounded-lg shadow-md p-8">
+                    <h3 class="text-2xl font-semibold text-primary mb-6">Get In Touch</h3>
+                    <form>
+                        <div class="mb-6">
+                            <label for="name" class="block text-gray-700 mb-2">Name</label>
+                            <input type="text" id="name" class="w-full px-4 py-3 border border-gray-300 rounded focus:border-primary" placeholder="Your Name">
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label for="email" class="block text-gray-700 mb-2">Email</label>
+                            <input type="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded focus:border-primary" placeholder="Your Email">
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label for="subject" class="block text-gray-700 mb-2">Subject</label>
+                            <input type="text" id="subject" class="w-full px-4 py-3 border border-gray-300 rounded focus:border-primary" placeholder="Subject">
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label for="message" class="block text-gray-700 mb-2">Message</label>
+                            <textarea id="message" rows="5" class="w-full px-4 py-3 border border-gray-300 rounded focus:border-primary" placeholder="Your Message"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="bg-primary text-white px-6 py-3 !rounded-button hover:bg-opacity-90 transition-colors whitespace-nowrap">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+                
+                <!-- Contact Information -->
+                <div class="w-full md:w-1/2">
+                    <h3 class="text-2xl font-semibold text-primary mb-6">Contact Information</h3>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mr-4">
+                                <i class="ri-mail-line ri-lg text-primary"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-medium text-secondary mb-1">Email</h4>
+                                <a href="mailto:mayilraj@example.com" class="text-gray-700 hover:text-primary">rajramar13@gmail.com</a>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mr-4">
+                                <i class="ri-phone-line ri-lg text-primary"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-medium text-secondary mb-1">Phone</h4>
+                                <a href="tel:+919876543210" class="text-gray-700 hover:text-primary">+91 7397532574</a>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mr-4">
+                                <i class="ri-map-pin-line ri-lg text-primary"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-medium text-secondary mb-1">Location</h4>
+                                <p class="text-gray-700">Tuticorin, Tamil Nadu, India</p>
+                            </div>
+                        </div>
+                        
+                        <div class="pt-6">
+                            <h4 class="text-lg font-medium text-secondary mb-4">Connect With Me</h4>
+                            <div class="flex space-x-4">
+                                <a href="https://www.linkedin.com/in/mayilraj13/" class="w-10 h-10 flex items-center justify-center bg-primary bg-opacity-10 rounded-full hover:bg-primary hover:text-white transition-colors">
+                                    <i class="ri-linkedin-fill ri-lg"></i>
+                                </a>
+                                <a href="https://github.com/Mayilraj13" class="w-10 h-10 flex items-center justify-center bg-primary bg-opacity-10 rounded-full hover:bg-primary hover:text-white transition-colors">
+                                    <i class="ri-github-fill ri-lg"></i>
+                                </a>
+                                
+                    
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-10">
+                        <a href="#" class="inline-flex items-center bg-primary text-white px-6 py-3 !rounded-button hover:bg-opacity-90 transition-colors whitespace-nowrap">
+                            <i class="ri-download-line ri-lg mr-2"></i>
+                            Download Resume
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-10">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <h2 class="text-2xl font-bold">MAYILRAJ R</h2>
+                    <p class="text-gray-400 mt-2">Firmware Engineer | IoT Enthusiast</p>
+                </div>
+                
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="ri-linkedin-fill ri-lg"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="ri-github-fill ri-lg"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="ri-twitter-fill ri-lg"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="ri-instagram-fill ri-lg"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400">© 2025 MAYILRAJ R. All rights reserved.</p>
+                <div class="mt-4 md:mt-0">
+                    <a href="#home" class="text-gray-400 hover:text-white transition-colors">
+                        Back to Top
+                        <i class="ri-arrow-up-line ri-sm ml-1"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu toggle
+            const menuButton = document.querySelector('button.md\\:hidden');
+            const mobileMenu = document.querySelector('.fixed.inset-0.bg-white');
+            const closeButton = mobileMenu.querySelector('button');
+            
+            menuButton.addEventListener('click', function() {
+                mobileMenu.classList.remove('hidden');
+                mobileMenu.classList.add('flex');
+            });
+            
+            closeButton.addEventListener('click', function() {
+                mobileMenu.classList.remove('flex');
+                mobileMenu.classList.add('hidden');
+            });
+            
+            // Mobile menu links
+            const mobileLinks = mobileMenu.querySelectorAll('a');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    mobileMenu.classList.remove('flex');
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+        });
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
