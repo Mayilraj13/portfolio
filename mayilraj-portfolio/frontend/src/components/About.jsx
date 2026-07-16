@@ -11,12 +11,12 @@ const identityCards = [
     title: 'Background',
     body: (
       <>
-        Electronics &amp; Communication Engineering graduate who pivoted to full-stack
-        development. Gained hands-on experience through <strong>3 internships</strong> —
-        at <span className="text-[#2D5A87] font-semibold">Ibee Analytics</span> (SDE),{' '}
-        <span className="text-[#2D5A87] font-semibold">Hapus Infotech</span> (Web Dev), and{' '}
-        <span className="text-[#2D5A87] font-semibold">Biglearn</span> (IoT) — spanning
-        embedded C to production React apps.
+        Software Engineering student specializing in full-stack development with a strong
+        foundation in web technologies. Gained hands-on experience through{' '}
+        <strong>3 internships</strong> — at{' '}
+        <span className="text-[#2D5A87] font-semibold">Ibee Analytics</span> (SDE Intern),{' '}
+        <span className="text-[#2D5A87] font-semibold">Hapus Infotech</span> (Web Developer
+        Intern), building real production applications from ground up.
       </>
     ),
   },
@@ -30,10 +30,11 @@ const identityCards = [
     title: 'Technical Interests',
     body: (
       <>
-        Passionate about <strong>MERN stack development</strong>, building REST APIs,
-        and connecting hardware to the web through IoT. Also deeply interested in{' '}
-        <strong>Python/Django</strong> for backend automation and sensor data
-        pipelines — bridging the physical and digital worlds.
+        Passionate about <strong>AI-powered full-stack development</strong> — building
+        REST APIs, React frontends, and integrating machine learning models into
+        production apps. Deeply interested in <strong>Python/Django</strong>,{' '}
+        <strong>data-driven applications</strong>, and using AI tools to automate and
+        enhance software solutions.
       </>
     ),
   },
@@ -47,11 +48,11 @@ const identityCards = [
     title: 'Problems I Enjoy Solving',
     body: (
       <>
-        I enjoy turning messy, real-world problems into clean digital solutions — whether
-        it's a <strong>gas leakage alert system</strong>, a{' '}
-        <strong>student management platform</strong>, or an{' '}
-        <strong>automated sanitizer dispenser</strong>. I focus on writing clean,
-        maintainable code that others can build on.
+        I enjoy turning complex requirements into clean, working software — whether it's a{' '}
+        <strong>Predictive Marketing Dashboard</strong> with ML forecasting, a{' '}
+        <strong>women's safety navigation app</strong>, or a{' '}
+        <strong>student management platform</strong>. I focus on writing maintainable code
+        that scales and delivers real user value.
       </>
     ),
   },
@@ -65,10 +66,10 @@ const identityCards = [
     title: "Role I'm Seeking",
     body: (
       <>
-        Looking for a <strong>Full-Stack Developer</strong> or{' '}
-        <strong>MERN Stack Engineer</strong> role where I can contribute to meaningful
-        products, grow with a strong engineering team, and apply my cross-domain
-        experience — from web development to IoT and hardware integration.
+        Looking for a <strong>Software Developer</strong> or{' '}
+        <strong>AI Full-Stack Engineer</strong> role where I can build meaningful products,
+        work with modern AI/ML tooling, and grow alongside a strong engineering team —
+        contributing from day one with my MERN stack and Python background.
       </>
     ),
   },

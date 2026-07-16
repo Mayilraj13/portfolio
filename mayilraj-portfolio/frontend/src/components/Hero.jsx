@@ -7,7 +7,7 @@ const techBadges = [
   { label: 'Express.js',bg: 'bg-gray-100',  text: 'text-gray-700',   border: 'border-gray-200' },
   { label: 'Python',    bg: 'bg-yellow-50', text: 'text-yellow-700', border: 'border-yellow-200' },
   { label: 'Django',    bg: 'bg-purple-50', text: 'text-purple-700', border: 'border-purple-200' },
-  { label: 'IoT / Arduino', bg: 'bg-orange-50', text: 'text-orange-700', border: 'border-orange-200' },
+  { label: 'AI / ML',   bg: 'bg-rose-50',   text: 'text-rose-700',   border: 'border-rose-200' },
 ]
 
 export default function Hero() {
@@ -25,7 +25,7 @@ export default function Hero() {
               {/* Availability tag */}
               <div className="inline-flex items-center gap-2 bg-[#2D5A87]/10 text-[#2D5A87] px-4 py-1.5 rounded-full text-sm font-semibold mb-5 border border-[#2D5A87]/20">
                 <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                Open to Full-Time Roles
+                Open to Full-Time SDE / AI Roles
               </div>
 
               {/* Name */}
