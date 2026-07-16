@@ -110,7 +110,7 @@ export const projects = [
     title: 'Gestura – Real-Time Sign Language Communication',
     summary: 'Bidirectional AI framework that converts sign language to speech and speech to sign language in real time — bridging deaf and hearing communication.',
     description: 'Gestura uses MediaPipe Hands for gesture tracking, a Bidirectional GRU with self-attention for sign recognition, OpenAI Whisper ASR for speech-to-text, and NLP keyword mapping to generate corresponding sign visualizations — enabling seamless two-way communication.',
-    image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=1000',
+    image: '/projects/gestura.png',
     tags: ['Python', 'MediaPipe', 'TensorFlow', 'Whisper ASR', 'NLP', 'OpenCV'],
     features: [
       'Sign Language → Speech via Bi-GRU + Self-Attention',
@@ -131,7 +131,7 @@ export const projects = [
     title: 'Push Notification System – Real-Time Delivery Platform',
     summary: 'A real-time notification delivery platform designed to send instant alerts, announcements, and updates across web and mobile apps.',
     description: 'Push Notification System integrates Firebase Cloud Messaging (FCM), Node.js backend APIs, and React/Android client applications to provide a scalable and reliable notification delivery architecture with token-based delivery authentication and background alert support.',
-    image: 'https://images.unsplash.com/photo-1546054454-aa26e2b734c7?auto=format&fit=crop&q=80&w=1000',
+    image: '/projects/push.png',
     tags: ['React.js', 'Node.js', 'Firebase Cloud Messaging (FCM)', 'Android Studio', 'Firebase Realtime DB'],
     features: [
       'Instant Web & Android Push Notifications via FCM',
@@ -150,10 +150,9 @@ export const projects = [
   },
   {
     title: 'Predictive Marketing Dashboard',
-
     summary: 'Full-stack analytics platform that aggregates multi-channel marketing data and uses ML to forecast future trends.',
     description: 'Built with React and Flask, this platform pulls performance metrics from social media and website channels, runs automated on-page SEO scraping, and uses Facebook Prophet to forecast future marketing KPIs with interactive Chart.js visualizations.',
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1000',
+    image: '/projects/marketing.png',
     tags: ['React', 'Chart.js', 'Python', 'Flask', 'Prophet (ML)', 'BeautifulSoup'],
     features: ['Time-Series Forecasting with Facebook Prophet', 'Multi-Platform Data Aggregation', 'Automated On-page SEO Scraping', 'Interactive Chart.js Visualizations'],
     why: 'Marketing teams spend hours manually compiling data from multiple platforms. I wanted to build a single dashboard that automates data collection and adds predictive intelligence.',
@@ -169,7 +168,7 @@ export const projects = [
     title: 'EmpowerHer – Safe Route Navigation',
     summary: 'Android app helping women find safe travel routes using real-time crime data and AI threat detection via a smart ring.',
     description: 'Safety-focused Android application integrating Google Maps SDK, Firebase, and live crime/traffic data to suggest safer routes. A paired smart ring uses AI threat detection to identify abnormal conditions and instantly alert trusted contacts.',
-    image: 'https://images.unsplash.com/photo-1569336415962-a4bd9f4cd7cb?auto=format&fit=crop&q=80&w=1000',
+    image: '/projects/empowerher.png',
     tags: ['Android Studio', 'Java', 'Google Maps SDK', 'Firebase', 'AI Threat Detection'],
     features: ['Safe Route Suggestions based on Crime Data', 'Live GPS Tracking & Location Sharing', 'Smart Ring AI Threat Detection', 'Emergency SOS & Police Connect'],
     why: 'Built for the Thoothukudi District Police Hackathon 2025. Women\'s safety in public spaces is a critical unsolved problem — we combined navigation and hardware sensing into one solution.',
@@ -185,7 +184,7 @@ export const projects = [
     title: 'TutiTraffic AI – Smart AI-Based Traffic Management System',
     summary: 'Intelligent AI-driven traffic management framework designed to optimize urban traffic flow using computer vision, real-time vehicle detection, and IoT sensor integration.',
     description: 'TutiTraffic AI combines YOLOv8 object detection, OpenCV video analytics, ESP32-enabled traffic sensors, and real-time InfluxDB/Grafana dashboards to monitor congestion, prioritize emergency vehicles, and automate traffic signals in smart city environments.',
-    image: 'https://images.unsplash.com/photo-1506521781263-d8422e82f27a?auto=format&fit=crop&q=80&w=1000',
+    image: '/projects/tutitraffic.png',
     tags: ['Python', 'YOLOv8', 'OpenCV', 'Flask', 'Android (Java)', 'ESP32', 'InfluxDB', 'Grafana'],
     features: [
       'Real-Time Vehicle & Pedestrian Detection with YOLOv8 & OpenCV',
@@ -206,7 +205,7 @@ export const projects = [
     title: 'Student Management System',
     summary: 'Full-stack Django web app for managing student records, enrollment, attendance, and admin dashboards.',
     description: 'Comprehensive student management platform built with Django, featuring student record management, course enrollment, attendance tracking, grade management, and a multi-role admin dashboard with Bootstrap-powered responsive UI.',
-    image: 'https://images.unsplash.com/photo-1523050854058-8df90110c7f1?auto=format&fit=crop&q=80&w=1000',
+    image: '/projects/student.png',
     tags: ['Django', 'Python', 'JavaScript', 'Bootstrap', 'SQLite'],
     features: ['Multi-role Auth (Admin / Teacher / Student)', 'Attendance Tracking & Reports', 'Course Enrollment Management', 'Grade & Performance Dashboard'],
     why: 'Most student management tools are either overly complex enterprise systems or basic spreadsheets. I wanted to build a clean, usable web app covering core workflows.',
@@ -222,7 +221,7 @@ export const projects = [
     title: 'Automated Object Detection Vehicle – Real-Time Control Software',
     summary: 'Autonomous navigation and real-time obstacle avoidance software for a robotic vehicle using deterministic C/C++.',
     description: 'Embedded software system implementing a real-time obstacle avoidance control loop and state machine for autonomous vehicle navigation. Features software-based signal filtering of noisy ultrasonic sensor distance data, dynamic motor PWM speed adjustments, and non-blocking scheduling for low-latency decision making.',
-    image: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&q=80&w=1000',
+    image: '/projects/vehicle.png',
     tags: ['Embedded C/C++', 'Real-Time Control Loop', 'Finite State Machines (FSM)', 'Signal Filtering', 'Arduino IDE'],
     features: [
       'Real-Time Signal Filtering (Moving Average) for Ultrasonic Distance Data',
@@ -243,7 +242,7 @@ export const projects = [
     title: 'Smart Gas Leakage Detection System – Embedded Safety Software',
     summary: 'Safety-critical monitoring system featuring real-time analog signal analysis, threshold calibration, and multi-modal alarm dispatching.',
     description: 'Software engine running on an AVR microcontroller to continuously monitor environmental hazardous gas levels. Implements threshold-trigger algorithms, exponential moving average filters to handle analog drift, and interrupt-driven audio/visual alarm dispatching to guarantee high system reliability.',
-    image: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=1000',
+    image: '/projects/gas.png',
     tags: ['Embedded C/C++', 'Analog Signal Processing', 'Interrupt Service Routines (ISR)', 'Watchdog Timer (WDT)', 'Safety Systems'],
     features: [
       'Exponential Moving Average (EMA) Filter for Analog Sensor Calibration',
@@ -264,7 +263,7 @@ export const projects = [
     title: 'Automated Hand Sanitizer Dispenser – Non-Blocking Control Software',
     summary: 'Low-power touchless dispenser software implementing sensor debouncing, precise solenoid pump activation, and deep sleep cycles.',
     description: 'Embedded control software built with a non-blocking architecture to operate a touchless sanitizer dispenser. Focuses on sensor reading debouncing to eliminate false triggers, precise millisecond-level solenoid pump driver activation, and low-power AVR sleep states to maximize battery lifecycle.',
-    image: 'https://images.unsplash.com/photo-1584483766114-2cea6facdf57?auto=format&fit=crop&q=80&w=1000',
+    image: '/projects/sanitizer.png',
     tags: ['Embedded C/C++', 'Debounce Algorithms', 'Low-Power Sleep Modes', 'Non-Blocking State Logic', 'Automation'],
     features: [
       'Software Debouncing on Ultrasonic Proximity Readings to Avoid False Triggers',
