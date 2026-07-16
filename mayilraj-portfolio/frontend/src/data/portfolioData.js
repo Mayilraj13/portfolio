@@ -6,7 +6,7 @@ export const personalInfo = {
   location: 'Tuticorin, Tamil Nadu, India',
   github: 'https://github.com/Mayilraj13',
   linkedin: 'https://www.linkedin.com/in/mayilraj13/',
-  resume: '/MAYILRAJ R.pdf',
+  resume: '/Mayilraj_R_Resume_.pdf',
   photo: '/pic.jpg',
   tagline: 'Building scalable full-stack applications powered by AI — from intelligent dashboards to production-ready MERN platforms — with 3 internships turning real-world ideas into working software.',
   shortBio: 'SDE Intern @ Ibee Analytics · Web Developer Intern @ Hapus Infotech · Full-Stack & AI Developer',

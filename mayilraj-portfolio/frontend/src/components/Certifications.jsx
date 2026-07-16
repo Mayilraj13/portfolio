@@ -62,30 +62,16 @@ function CertCard({ cert }) {
         </div>
       </div>
 
-      {/* View & Verify Action Buttons */}
-      <div className="flex flex-col sm:flex-row gap-2 mt-2 pt-3 border-t border-gray-50">
+      {/* View Action Button */}
+      <div className="mt-2 pt-3 border-t border-gray-50">
         <a 
           href={cert.link} 
           target="_blank" 
           rel="noopener noreferrer"
-          className="flex-1 text-center py-2 px-3 rounded-lg text-xs font-bold bg-[#2D5A87] text-white hover:bg-[#2D5A87]/95 transition-colors cursor-pointer"
+          className="block w-full text-center py-2 px-3 rounded-lg text-xs font-bold bg-[#2D5A87] text-white hover:bg-[#2D5A87]/95 transition-colors cursor-pointer"
         >
           View Certificate
         </a>
-        {cert.verifyLink ? (
-          <a 
-            href={cert.verifyLink} 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="flex-1 text-center py-2 px-3 rounded-lg text-xs font-bold border border-[#2D5A87] text-[#2D5A87] hover:bg-[#2D5A87]/5 transition-colors cursor-pointer"
-          >
-            Verify Credential
-          </a>
-        ) : (
-          <span className="flex-1 text-center py-2 px-3 rounded-lg text-xs font-semibold bg-gray-50 text-gray-400 border border-dashed border-gray-200">
-            No Verification Link
-          </span>
-        )}
       </div>
     </div>
   )
