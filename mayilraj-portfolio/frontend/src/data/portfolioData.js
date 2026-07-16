@@ -364,7 +364,7 @@ export const certifications = {
       date: 'November 2025',
       credentialId: 'BE10X-AI-4929',
       skills: ['Prompt Engineering', 'ChatGPT Automation API', 'Workflow Optimizations', 'Data Analysis with AI'],
-      link: 'https://drive.google.com/file/d/1ZCjqwCD4BwhCvTxpjP9HOFYMzdpMXjy3/view?usp=sharing',
+      link: 'https://drive.google.com/file/d/1arhUxZbiZfAJD5E0ogSXPIc4kIHu8yNI/view?usp=sharing',
       verifyLink: 'https://be10x.in/verify',
       icon: 'robot-line',
       color: 'purple'
@@ -487,7 +487,7 @@ export const experience = [
     location: 'Tiruchirappalli, Tamil Nadu (Remote)',
     logo: '/hapus-logo.png',
     icon: 'layout-line',
-    color: 'blue',
+    color: 'orange',
     description: 'Designed and implemented responsive frontend interfaces using Bootstrap, HTML5, and CSS3 to maximize cross-device compatibility. Developed backend logic and data models in Python and Django to power database-driven web features. Collaborated closely with senior engineers to troubleshoot database query performance and debug legacy system modules.',
     tags: ['Python', 'Django', 'Bootstrap', 'HTML5/CSS3'],
     responsibilities: [
@@ -567,27 +567,78 @@ export const experience = [
 
 export const education = [
   {
-    degree: 'B.Tech in Information Technology',
+    degree: 'Bachelor of Technology',
+    specialization: 'Information Technology',
     school: 'University College of Engineering, BIT Campus, Trichy',
-    period: '2023 – 2026 (Expected)',
+    university: 'Affiliated to Anna University',
+    period: '2023 – 2026',
+    score: { label: 'CGPA', value: '7.2 / 10' },
+    coursework: [
+      'Data Structures & Algorithms',
+      'Database Management Systems (DBMS)',
+      'Operating Systems',
+      'Computer Networks',
+      'Software Engineering',
+      'Embedded Systems',
+      'Internet of Things (IoT)'
+    ],
+    highlights: [
+      'Built multiple Full Stack web applications using the MERN stack.',
+      'Completed AI, automation, and IoT academic prototyping projects.',
+      'Participated in District Police Hackathons and technical webinars.'
+    ],
+    project: {
+      title: 'EmpowerHer Wearable Safety Ring',
+      description: 'Developed an IoT-enabled safety wearable featuring panic trigger buttons, real-time GPS coordinates transmission, and Firebase telemetry backend.'
+    },
     icon: 'graduation-cap-line',
-    description: 'Specializing in embedded systems and IoT technologies. Current CGPA: 7.2/10.',
-    tags: ['Cloud Basics', 'Communication Protocols', 'IoT', 'Integration Methods'],
+    color: 'blue'
   },
   {
-    degree: 'Diploma in Electronics & Communication Engineering',
+    degree: 'Diploma in Engineering',
+    specialization: 'Electronics & Communication Engineering',
     school: 'Thevanesam Eruthaya Ammal Polytechnic College',
+    university: 'State Board of Technical Education, Tamil Nadu',
     period: '2020 – 2022',
-    icon: 'building-4-line',
-    description: 'Achieved CGPA of 9.1/10. Gained strong foundation in electronics, embedded systems, and communication technologies.',
-    tags: ['Embedded Systems', 'Digital Electronics', 'Hardware Basics', 'Communication'],
+    score: { label: 'CGPA', value: '9.1 / 10' },
+    coursework: [
+      'Digital Electronics',
+      'Microcontrollers & Embedded Programming',
+      'Analog Communication',
+      'Electronic Devices & Circuits',
+      'Hardware Prototyping'
+    ],
+    highlights: [
+      'Graduated with Distinction, achieving an outstanding CGPA of 9.1/10.',
+      'Designed and assembled embedded microcontroller testbeds and logic circuits.',
+      'Scored top grades in practical laboratory coursework and diagnostic exams.'
+    ],
+    project: {
+      title: 'Fingerprint Voting System (Final Year Project)',
+      description: 'Designed and engineered the hardware framework for a biometric fingerprint voting system utilizing an AS608 optical fingerprint sensor, LCD display, and Arduino Uno microcontroller logic for voter verification.'
+    },
+    icon: 'award-line',
+    color: 'green'
   },
   {
-    degree: 'Higher Secondary Education',
+    degree: 'Higher Secondary Certificate (HSC)',
+    specialization: 'Physics, Chemistry, Mathematics & Biology',
     school: 'Government Higher Secondary School',
+    university: 'Tamil Nadu State Board',
     period: '2018 – 2020',
-    icon: 'school-line',
-    description: 'Completed with 60% in Physics, Chemistry, and Mathematics.',
-    tags: ['Physics', 'Chemistry', 'Mathematics', 'Biology'],
-  },
+    score: { label: 'Percentage', value: '60%' },
+    coursework: [
+      'Advanced Mathematics',
+      'Physics Mechanics',
+      'Organic & Inorganic Chemistry',
+      'Biological Sciences'
+    ],
+    highlights: [
+      'Successfully completed senior secondary education with strong science fundamentals.',
+      'Participated in science exhibitions, practical lab simulations, and math olympiads.'
+    ],
+    project: null,
+    icon: 'book-open-line',
+    color: 'orange'
+  }
 ]

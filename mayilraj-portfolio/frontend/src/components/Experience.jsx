@@ -47,7 +47,7 @@ const getCompanyInitials = (name) => {
 }
 
 export default function Experience() {
-  const [expandedIndex, setExpandedIndex] = useState(0) // Default expand the first (Creoleap)
+  const [expandedIndex, setExpandedIndex] = useState(-1) // All closed by default
 
   const toggleExpand = (index) => {
     setExpandedIndex(expandedIndex === index ? -1 : index)
@@ -73,15 +73,20 @@ export default function Experience() {
             return (
               <div 
                 key={i} 
-                className={`bg-white rounded-2xl shadow-md hover:shadow-xl border-l-4 ${c.accent} border border-gray-100 p-5 sm:p-8 transition-all duration-300 hover:-translate-y-1`}
+                onClick={() => toggleExpand(i)}
+                className={`bg-white rounded-2xl shadow-md hover:shadow-xl border-l-4 ${c.accent} border border-gray-100 p-5 sm:p-8 transition-all duration-300 hover:-translate-y-1 cursor-pointer`}
               >
                 {/* Header Information */}
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-gray-100">
                   <div className="flex items-center gap-4">
                     {/* Stylized Logo Badge */}
-                    <div className={`w-12 h-12 sm:w-16 sm:h-16 rounded-2xl flex items-center justify-center font-extrabold text-lg sm:text-2xl shadow-sm ${c.iconBg} ${c.text} border border-gray-100 flex-shrink-0 overflow-hidden`}>
+                    <div className={`w-12 h-12 sm:w-16 sm:h-16 rounded-full flex items-center justify-center font-extrabold text-lg sm:text-2xl shadow-sm ${exp.logo ? 'bg-white border-gray-200' : `${c.iconBg} ${c.text}`} border flex-shrink-0 overflow-hidden`}>
                       {exp.logo ? (
-                        <img src={exp.logo} alt={`${exp.company} logo`} className="w-full h-full object-contain p-1" />
+                        <img 
+                          src={exp.logo} 
+                          alt={`${exp.company} logo`} 
+                          className={`w-full h-full ${exp.company.includes('Apollo') ? 'object-contain p-2' : exp.company.includes('Hapus') ? 'object-contain p-0.5' : 'object-cover'}`} 
+                        />
                       ) : (
                         initials
                       )}
@@ -193,7 +198,7 @@ export default function Experience() {
 
                 {/* Expand / Collapse Button Toggle */}
                 <button
-                  onClick={() => toggleExpand(i)}
+                  onClick={(e) => { e.stopPropagation(); toggleExpand(i); }}
                   className="w-full text-center mt-4 text-xs sm:text-sm text-[#2D5A87] hover:text-[#2D5A87]/80 font-bold flex items-center justify-center gap-1 cursor-pointer pt-2 border-t border-gray-50"
                 >
                   <span>{isExpanded ? 'Collapse Details' : 'View Full Details & Metrics'}</span>

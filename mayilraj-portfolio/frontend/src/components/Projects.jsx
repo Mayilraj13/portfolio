@@ -141,20 +141,6 @@ function ProjectCard({ project }) {
           >
             <i className="ri-github-fill" /> GitHub
           </a>
-          {project.demo ? (
-            <a
-              href={project.demo}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2 bg-[#2D5A87] text-white text-sm font-semibold rounded-lg hover:bg-[#2D5A87]/90 transition-colors"
-            >
-              <i className="ri-external-link-line" /> Live Demo
-            </a>
-          ) : (
-            <span className="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 text-gray-400 text-sm font-medium rounded-lg cursor-not-allowed">
-              <i className="ri-eye-off-line" /> No Live Demo
-            </span>
-          )}
         </div>
       </div>
     </div>
