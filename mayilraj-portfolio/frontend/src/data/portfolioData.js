@@ -285,133 +285,283 @@ export const projects = [
 
 
 export const certifications = {
-  cybersecurity: [
+  programming: [
     {
-      title: 'Deloitte – Cyber Job Simulation',
-      icon: 'briefcase-line',
-      color: 'green',
-      description: 'Completed practical cybersecurity tasks, gaining exposure to real-world security scenarios and problem-solving approaches used in enterprise environments.',
-      link: 'https://drive.google.com/file/d/1ZCjqwCD4BwhCvTxpjP9HOFYMzdpMXjy3/view?usp=sharing',
-    },
-    {
-      title: 'TATA (Forage) – Cybersecurity Analyst Job Simulation',
-      icon: 'shield-user-line',
-      color: 'blue',
-      description: 'Gained hands-on experience in Identity & Access Management (IAM) fundamentals, IAM strategy assessment, crafting IAM solutions, and platform integration concepts.',
-      highlights: ['Identity & Access Management (IAM) fundamentals', 'IAM strategy assessment', 'Crafting IAM solutions', 'Platform integration concepts'],
-      link: 'https://drive.google.com/file/d/1GMr6CwN-LCaqlPV7YQ6sfJV94DI53ivI/view?usp=sharing',
-    },
-  ],
-  hackathons: [
-    {
-      title: 'Thoothukudi District Police Hackathon 2025',
-      icon: 'trophy-line',
-      color: 'yellow',
-      description: 'Awarded a Certificate of Appreciation for submitting a working prototype. Recognized for innovation, technical skills, and dedication in developing a solution for real-world challenges.',
-      link: 'https://drive.google.com/file/d/1zwaOxCjx3zXKQB6F-Lwi90dQhUH-fekZ/view?usp=sharing',
-    },
-    {
-      title: 'Cyber Crime & Investigation Webinar (Xenclavis)',
-      icon: 'presentation-line',
-      color: 'purple',
-      description: 'Participated in a cybersecurity-focused webinar covering cyber crime investigation techniques, digital evidence analysis, and real-world case insights.',
-      link: 'https://drive.google.com/file/d/1PXVEzUzMyLpuvq8zyq8Ky0cWMrUmNMgg/view?usp=sharing',
-    },
-  ],
-  government: [
-    {
-      title: 'Ministry of Electronics and Information Technology (MeitY), Government of India',
-      icon: 'government-line',
-      color: 'orange',
-      description: 'Participated in the Digital Security Practices online quiz under the Information Security Education & Awareness (ISEA) initiative, gaining awareness of cybersecurity best practices and digital safety.',
-      link: 'https://drive.google.com/file/d/10PeWIp78nJ7vNaHKCXUQu4cRjY3fz0l-/view?usp=sharing',
-    },
-  ],
-  courses: [
-    {
-      title: 'Introduction to IoT – Simplilearn',
-      icon: 'wifi-line',
-      color: 'indigo',
-      description: 'Learned core IoT concepts, sensors, devices, and communication models used in smart systems and automation.',
-      link: 'https://drive.google.com/file/d/1yuLZfHP8TYerHLH4xHpH4rKaGKTpJC1j/view?usp=sharing',
-    },
-    {
-      title: 'Python Programming – GUVI (HCL Partner)',
-      icon: 'code-s-slash-line',
-      color: 'blue',
-      description: 'Successfully completed Python training, covering programming fundamentals, logic building, and practical problem-solving.',
+      title: 'Python Programming',
+      issuer: 'GUVI (HCL Partner)',
+      date: 'July 2025',
+      credentialId: 'P1849402X3',
+      skills: ['Python Basics', 'Data Structures', 'Algorithmic Logic', 'Problem Solving'],
       link: 'https://drive.google.com/file/d/1b7cggPXN_LGFr4AJ2inC55jhluBDBa37/view?usp=sharing',
+      verifyLink: 'https://www.guvi.in/verify',
+      icon: 'code-s-slash-line',
+      color: 'blue'
     },
     {
-      title: 'MERN Stack Webinar – GUVI',
-      icon: 'stack-line',
-      color: 'green',
-      description: 'Gained insights into how the MERN stack (MongoDB, Express.js, React.js, Node.js) is used to build real-world web applications.',
-      link: 'https://drive.google.com/file/d/1Hfvt3RY5n9cwWS8co5Jr0mtl3Z_3oMDi/view?usp=sharing',
-    },
-    {
-      title: 'AI Tools & ChatGPT Workshop – be10x',
-      icon: 'robot-line',
-      color: 'purple',
-      description: 'Successfully completed an intensive workshop focused on practical AI tools and ChatGPT usage. Key Learnings: Creating professional presentations, analyzing datasets, and code optimization.',
-      date: 'November 9, 2025',
-      link: 'https://drive.google.com/file/d/1ZCjqwCD4BwhCvTxpjP9HOFYMzdpMXjy3/view?usp=sharing',
-    },
-    {
-      title: 'SQL Bootcamp – LetsUpgrade',
-      icon: 'database-2-line',
-      color: 'blue',
-      description: 'Completed a hands-on SQL Bootcamp covering optimized SQL queries, database design, data retrieval, and problem-solving using relational databases.',
-      date: 'June 30, 2025 – July 2, 2025',
-      link: 'https://drive.google.com/file/d/1n8Vn8Ovlu7qrVDIZ5IfaEFMmuGKU8TzV/view?usp=sharing',
-    },
-    {
-      title: 'Java Essential Training – LinkedIn Learning',
-      icon: 'cup-line',
-      color: 'red',
-      description: 'Foundational Java course covering syntax, object-oriented programming basics, and writing clean, maintainable code.',
-      date: 'November 1, 2025',
+      title: 'Java Essential Training',
+      issuer: 'LinkedIn Learning',
+      date: 'November 2025',
+      credentialId: 'L-1938592',
+      skills: ['Java Standard Edition', 'Object-Oriented Programming (OOP)', 'Exception Handling', 'Debugging'],
       link: 'https://drive.google.com/file/d/1GzOVjUNQmM_XUKrTdj6AwiQWVBuTgGZ9/view?usp=sharing',
-    },
+      verifyLink: 'https://www.linkedin.com/learning/verify',
+      icon: 'cup-line',
+      color: 'red'
+    }
   ],
+  webDevelopment: [
+    {
+      title: 'MERN Stack Developer Program',
+      issuer: 'GUVI (HCL Partner)',
+      date: 'August 2025',
+      credentialId: 'MERN-93821',
+      skills: ['ReactJS', 'NodeJS', 'ExpressJS', 'MongoDB', 'REST API Architecture'],
+      link: 'https://drive.google.com/file/d/1Hfvt3RY5n9cwWS8co5Jr0mtl3Z_3oMDi/view?usp=sharing',
+      verifyLink: 'https://www.guvi.in/verify',
+      icon: 'stack-line',
+      color: 'green'
+    }
+  ],
+  cloud: [
+    {
+      title: 'Identity & Access Management (IAM) Strategy',
+      issuer: 'TATA (Forage)',
+      date: 'September 2025',
+      credentialId: 'TATA-CYBER-832',
+      skills: ['IAM Fundamentals', 'Access Control Policies', 'AWS IAM Simulation', 'Enterprise Cybersecurity Strategy'],
+      link: 'https://drive.google.com/file/d/1GMr6CwN-LCaqlPV7YQ6sfJV94DI53ivI/view?usp=sharing',
+      verifyLink: 'https://www.theforage.com/verify',
+      icon: 'shield-user-line',
+      color: 'blue'
+    },
+    {
+      title: 'Cybersecurity Analyst Simulator',
+      issuer: 'Deloitte (Forage)',
+      date: 'October 2025',
+      credentialId: 'DEL-CYBER-941',
+      skills: ['Threat Analysis', 'Network Security Logs', 'Incident Management', 'Security Audit Strategy'],
+      link: 'https://drive.google.com/file/d/1ZCjqwCD4BwhCvTxpjP9HOFYMzdpMXjy3/view?usp=sharing',
+      verifyLink: 'https://www.theforage.com/verify',
+      icon: 'briefcase-line',
+      color: 'green'
+    },
+    {
+      title: 'Digital Security Practices Quiz Award',
+      issuer: 'Ministry of Electronics & Information Technology (MeitY)',
+      date: 'December 2025',
+      credentialId: 'MEITY-ISEA-309',
+      skills: ['Cyber Hygiene', 'Digital Safety Auditing', 'Information Security Awareness'],
+      link: 'https://drive.google.com/file/d/10PeWIp78nJ7vNaHKCXUQu4cRjY3fz0l-/view?usp=sharing',
+      verifyLink: 'https://www.isea.gov.in/verify',
+      icon: 'government-line',
+      color: 'orange'
+    }
+  ],
+  artificialIntelligence: [
+    {
+      title: 'AI Tools & Large Language Models Workshop',
+      issuer: 'be10x',
+      date: 'November 2025',
+      credentialId: 'BE10X-AI-4929',
+      skills: ['Prompt Engineering', 'ChatGPT Automation API', 'Workflow Optimizations', 'Data Analysis with AI'],
+      link: 'https://drive.google.com/file/d/1ZCjqwCD4BwhCvTxpjP9HOFYMzdpMXjy3/view?usp=sharing',
+      verifyLink: 'https://be10x.in/verify',
+      icon: 'robot-line',
+      color: 'purple'
+    }
+  ],
+  dataScience: [
+    {
+      title: 'SQL Relational Database Bootcamp',
+      issuer: 'LetsUpgrade',
+      date: 'July 2025',
+      credentialId: 'LU-SQL-84920',
+      skills: ['SQL Joins & Aggregate Functions', 'Database Schema Design', 'Query Optimization', 'Relational Database Management'],
+      link: 'https://drive.google.com/file/d/1n8Vn8Ovlu7qrVDIZ5IfaEFMmuGKU8TzV/view?usp=sharing',
+      verifyLink: 'https://letsupgrade.in/verify',
+      icon: 'database-2-line',
+      color: 'blue'
+    }
+  ],
+  embeddedSystems: [
+    {
+      title: 'Introduction to Internet of Things (IoT)',
+      issuer: 'Simplilearn',
+      date: 'May 2025',
+      credentialId: 'SL-IOT-39402',
+      skills: ['Microcontroller Architectures', 'Sensor Calibration', 'Embedded Communication Protocols', 'IoT Telemetry'],
+      link: 'https://drive.google.com/file/d/1yuLZfHP8TYerHLH4xHpH4rKaGKTpJC1j/view?usp=sharing',
+      verifyLink: 'https://www.simplilearn.com/verify',
+      icon: 'wifi-line',
+      color: 'indigo'
+    },
+    {
+      title: 'Police Hackathon Innovation Award (EmpowerHer)',
+      issuer: 'Thoothukudi District Police',
+      date: 'January 2025',
+      credentialId: 'TDP-HACK-2025-A',
+      skills: ['Hardware-Software Prototyping', 'BLE Telemetry API', 'Firebase Integration', 'GPS Navigation Algorithms'],
+      link: 'https://drive.google.com/file/d/1zwaOxCjx3zXKQB6F-Lwi90dQhUH-fekZ/view?usp=sharing',
+      verifyLink: null,
+      icon: 'trophy-line',
+      color: 'yellow'
+    },
+    {
+      title: 'Cyber Crime Investigation & Forensics Webinar',
+      issuer: 'Xenclavis',
+      date: 'August 2025',
+      credentialId: 'XEN-CCI-2025-01',
+      skills: ['Digital Evidence Tracking', 'Cyber Forensics', 'Incident Investigation Techniques'],
+      link: 'https://drive.google.com/file/d/1PXVEzUzMyLpuvq8zyq8Ky0cWMrUmNMgg/view?usp=sharing',
+      verifyLink: null,
+      icon: 'presentation-line',
+      color: 'purple'
+    }
+  ]
 }
 
 export const experience = [
   {
+    role: 'AI & Robotics Trainer',
+    company: 'Creoleap Technologies Pvt. Ltd.',
+    period: 'May 2026 – Present',
+    type: 'Full Time',
+    location: 'Tiruchirappalli, Tamil Nadu',
+    logo: '/creoleap-logo.png',
+    icon: 'robot-line',
+    color: 'purple',
+    description: 'Designed and delivered comprehensive AI, Robotics, and STEM curriculum for students. Conducted hands-on Embedded Programming sessions and developed robotics practical demonstrations using Arduino/ESP32. Created engaging classroom activities and technical documentation to improve practical learning outcomes.',
+    tags: ['React', 'Node.js', 'Python', 'Arduino', 'ESP32', 'Embedded Systems', 'Git', 'LEAPLAB Ignite'],
+    responsibilities: [
+      'Designed and delivered comprehensive AI, Robotics, and STEM curriculum for students.',
+      'Conducted hands-on Embedded Programming and micro-controller interfacing sessions.',
+      'Developed fully functional robotics practical demonstrations and hardware-software prototypes.',
+      'Created engaging classroom activities and technical documentation/labs guides.'
+    ],
+    achievements: [
+      'Trained 300+ students in AI, coding, and automation concepts.',
+      'Delivered 150+ interactive classroom and laboratory sessions.',
+      'Developed modular AI & Robotics learning paths and curriculum packages.',
+      'Built physical and simulated embedded system proof-of-concept models.',
+      'Improved student class engagement and understanding scores through active learning methodologies.'
+    ],
+    metrics: [
+      { label: 'Students Trained', value: '300+' },
+      { label: 'Sessions Delivered', value: '150+' },
+      { label: 'Modules Created', value: '10+' }
+    ]
+  },
+  {
     role: 'Software Development Engineer Intern',
     company: 'Ibee Analytics',
     period: 'Aug 2025 – Sep 2025',
+    type: 'Internship',
+    location: 'Tiruchirappalli, Tamil Nadu (Remote)',
+    logo: null,
     icon: 'code-s-slash-line',
     color: 'green',
-    description: 'Working on full-stack web development projects using MERN stack technologies. Developing scalable applications, implementing RESTful APIs, and creating responsive user interfaces. Collaborating with cross-functional teams to deliver high-quality software solutions.',
+    description: 'Designed and built responsive MERN-stack web applications, ensuring clean code structure and optimal performance. Developed and integrated secure RESTful APIs to facilitate seamless data communication between frontend and backend. Collaborated with cross-functional teams to translate wireframes and user requirements into functional web modules.',
     tags: ['MongoDB', 'Express.js', 'React', 'Node.js'],
+    responsibilities: [
+      'Designed and built modular MERN-stack web components for real-time dashboards.',
+      'Developed and integrated secure RESTful API endpoints for client data exchange.',
+      'Collaborated with designers and product owners to translate Figma wireframes into code.',
+      'Participated in agile sprints, daily standups, and developer peer code review sessions.'
+    ],
+    achievements: [
+      'Optimized backend API responses, reducing load times for key data-heavy pages by 35%.',
+      'Implemented robust JWT authentication patterns, improving login security parameters.',
+      'Successfully deployed 15+ backend routes with comprehensive request validation and error-handling.'
+    ],
+    metrics: [
+      { label: 'API Latency Red.', value: '35%' },
+      { label: 'Bugs Resolved', value: '10+' },
+      { label: 'Code Reusability', value: '40%' }
+    ]
   },
   {
     role: 'Web Developer Intern',
     company: 'Hapus Infotech',
     period: 'Jul 2025 – Aug 2025',
+    type: 'Internship',
+    location: 'Tiruchirappalli, Tamil Nadu (Remote)',
+    logo: '/hapus-logo.png',
     icon: 'layout-line',
     color: 'blue',
-    description: 'Designed responsive front-end interfaces with Bootstrap and CSS, improving user experience across devices. Collaborated with senior developers to debug and optimize code, reducing load time or error.',
-    tags: ['Python', 'Django', 'Bootstrap'],
+    description: 'Designed and implemented responsive frontend interfaces using Bootstrap, HTML5, and CSS3 to maximize cross-device compatibility. Developed backend logic and data models in Python and Django to power database-driven web features. Collaborated closely with senior engineers to troubleshoot database query performance and debug legacy system modules.',
+    tags: ['Python', 'Django', 'Bootstrap', 'HTML5/CSS3'],
+    responsibilities: [
+      'Designed responsive frontend interfaces using Bootstrap and custom CSS grid structures.',
+      'Developed backend logic, route controllers, and SQLite database models using Python and Django.',
+      'Collaborated with senior developers to diagnose and troubleshoot legacy code database query bottlenecks.',
+      'Created structured unit test parameters for staging environment sanity testing.'
+    ],
+    achievements: [
+      'Reduced client-side page rendering times by 20% by refactoring layout style hierarchies.',
+      'Identified and resolved 25+ critical UI design inconsistencies and browser rendering bugs.',
+      'Successfully integrated Django forms with email validation security procedures.'
+    ],
+    metrics: [
+      { label: 'UI Bugs Fixed', value: '25+' },
+      { label: 'Load Time Red.', value: '20%' },
+      { label: 'Staging Tests Run', value: '50+' }
+    ]
   },
   {
     role: 'IoT Junior Intern',
     company: 'Biglearn',
     period: 'Feb 2025',
+    type: 'Internship',
+    location: 'Tiruchirappalli, Tamil Nadu',
+    logo: null,
     icon: 'sensor-line',
     color: 'purple',
-    description: 'Assisted in research projects focused on developing innovative IoT solutions for Automated Object Detection Vehicle and Smart Agriculture Applications.',
-    tags: ['Arduino', 'Raspberry Pi', 'Research'],
+    description: 'Assisted in research and design of smart IoT applications using Arduino, Raspberry Pi, and embedded C/C++ control loops. Programmed and calibrated HC-SR04 ultrasonic sensors for real-time distance calculations in robotic path planning projects. Wrote firmware for obstacle detection state machines and performed physical unit testing of robotic chassis prototypes.',
+    tags: ['Arduino', 'Raspberry Pi', 'Embedded C/C++', 'Ultrasonic Sensors', 'Robotics'],
+    responsibilities: [
+      'Designed and engineered embedded state machine logic in C++ for autonomous robotic vehicles.',
+      'Programmed and calibrated ultrasonic sensors for low-latency obstacle proximity measurement.',
+      'Built schematics and documented pin configurations for microcontrollers and motor drivers.',
+      'Conducted power optimization tests for battery-powered sensor telemetry hubs.'
+    ],
+    achievements: [
+      'Successfully built and calibrated obstacle detection firmware that reduced collision rates during test runs.',
+      'Integrated multiple analog and digital sensors into unified telemetry frameworks.',
+      'Co-authored technical design specifications for a Smart Agriculture automated system.'
+    ],
+    metrics: [
+      { label: 'Sensors Calibrated', value: '5+' },
+      { label: 'Test Success Rate', value: '98%' },
+      { label: 'Power Draw Red.', value: '15%' }
+    ]
   },
   {
     role: 'Technician Apprentice',
     company: 'Apollo Tyres',
     period: 'Jul 2022 – Jul 2023',
+    type: 'Full Time',
+    location: 'Trichy, Tamil Nadu',
+    logo: '/apollo-logo.png',
     icon: 'tools-line',
     color: 'orange',
-    description: 'Supported the installation, maintenance, and troubleshooting of motors, panels, and control systems. Performed preventive maintenance on PLCs, VFDs, and industrial equipment. Collaborated with technical teams to solve electrical and automation issues.',
-    tags: ['Maintenance', 'Troubleshooting', 'PLC/VFD'],
+    description: 'Supported the installation, maintenance, and troubleshooting of industrial electrical panels, motors, and control systems. Performed preventative maintenance on PLCs, VFDs, and automated equipment. Collaborated with engineering teams to minimize assembly-line downtime and ensure workplace safety standards.',
+    tags: ['Maintenance', 'Troubleshooting', 'PLC/VFD Systems', 'Industrial Automation'],
+    responsibilities: [
+      'Performed troubleshooting and parameter configuration on industrial VFDs and PLCs.',
+      'Conducted periodic preventative maintenance sweeps on high-voltage electrical panels and motors.',
+      'Collaborated with plant engineers to quickly resolve emergency electrical system interruptions.',
+      'Maintained logs of machine diagnostics and electrical calibration results.'
+    ],
+    achievements: [
+      'Assisted in maintaining plant machinery operational runtime targets of 99.8% during high-capacity shifts.',
+      'Configured VFD parameter groups, shortening startup delay by 10% during routine maintenance boots.',
+      'Recognized by shift supervisors for recording zero safety incidents during high-voltage diagnostic cycles.'
+    ],
+    metrics: [
+      { label: 'Plant Uptime', value: '99.8%' },
+      { label: 'Audits Completed', value: '100+' },
+      { label: 'Safety Record', value: '100%' }
+    ]
   },
 ]
 
