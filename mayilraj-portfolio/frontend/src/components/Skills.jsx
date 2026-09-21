@@ -1,6 +1,7 @@
+import { useState } from 'react'
 import { skills } from '../data/portfolioData'
 
-// ── Official logo map (Devicons CDN) ──────────────────────────────────────
+// ── Official logo map (Devicons & Simple Icons CDN) ────────────────────────
 const logoMap = {
   'React.js':       'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg',
   'HTML5':          'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg',
@@ -22,7 +23,7 @@ const logoMap = {
   'GitHub':         'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg',
   'AWS':            'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg',
   'Vercel':         'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vercel/vercel-original.svg',
-  'Render':         'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/render/render-original.svg',
+  'Render':         'https://cdn.simpleicons.org/render',
   'VS Code':        'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg',
   'Postman':        'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postman/postman-original.svg',
   'NPM':            'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/npm/npm-original-wordmark.svg',
@@ -43,19 +44,20 @@ const sectionAccent = {
 
 // ── Skill icon — official logo or fallback remixicon ──────────────────────
 function SkillIcon({ item, size = 'lg' }) {
+  const [hasError, setHasError] = useState(false)
   const logo = logoMap[item.name]
   const dim = size === 'lg' ? 'w-8 h-8' : 'w-7 h-7'
 
-  // Django & Flask logos are dark — give them a light bg so they're visible
-  const needsBg = ['Django', 'Flask', 'Express.js', 'GitHub', 'Vercel'].includes(item.name)
+  // Darker logos — give them a light bg padding so they're clearly visible
+  const needsBg = ['Django', 'Flask', 'Express.js', 'GitHub', 'Vercel', 'Render'].includes(item.name)
 
-  if (logo) {
+  if (logo && !hasError) {
     return (
       <img
         src={logo}
         alt={item.name}
         className={`${dim} object-contain ${needsBg ? 'p-0.5' : ''}`}
-        onError={(e) => { e.currentTarget.style.display = 'none' }}
+        onError={() => setHasError(true)}
       />
     )
   }

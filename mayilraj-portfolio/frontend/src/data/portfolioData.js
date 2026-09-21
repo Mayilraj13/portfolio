@@ -12,17 +12,30 @@ export const personalInfo = {
   shortBio: 'SDE Intern @ Ibee Analytics · Web Developer Intern @ Hapus Infotech · Full-Stack & AI Developer',
   badges: ['React', 'Node.js', 'MongoDB', 'Express.js', 'Python', 'Django', 'AI / ML'],
   stats: [
+    { value: '1', label: 'Patent Published' },
     { value: '5+', label: 'Projects' },
     { value: '3', label: 'Internships' },
     { value: '7+', label: 'Certifications' },
-    { value: '1', label: 'Hackathon Award' },
   ],
 }
 
+export const patent = {
+  title: 'IriSafe: A Real-Time Biometric Safety Wearable Featuring Iris-Based Authentication, AI-Driven Threat Intelligence, and Blockchain-Secured Evidence Storage',
+  applicationNumber: '202541053097',
+  publicationNumber: '24/2025',
+  filingDate: '31/05/2025',
+  publicationDate: '13/06/2025',
+  field: 'BIO-MEDICAL ENGINEERING',
+  authority: 'Office of the Controller General of Patents, Designs & Trade Marks (Govt. of India)',
+  inventors: ['Dr. R. Jayamala', 'Mayilraj R', 'Aishwarya K. S'],
+  description: 'Co-inventor of a published Indian Patent for a biometric safety wearable integrating iris authentication, AI threat detection intelligence, and blockchain technology for tamper-proof evidence storage.'
+}
+
 export const about = {
-  heading: 'Full-Stack Developer with an AI Edge',
+  heading: 'Full-Stack Developer & AI Innovator',
   paragraphs: [
-    'I am a passionate **AI Full-Stack Developer** with hands-on experience building production-ready web applications. My core stack is MongoDB, Express.js, React, and Node.js — augmented with Python, Django, and machine learning libraries to deliver intelligent, data-driven features.',
+    'I am a passionate **AI Full-Stack Developer** with hands-on experience building production-ready web applications and innovative software systems. My core stack is MongoDB, Express.js, React, and Node.js — augmented with Python, Django, and machine learning libraries to deliver intelligent, data-driven features.',
+    'I am a co-inventor of a **published Indian Patent** (App No: 202541053097) titled *"IriSafe: A Real-Time Biometric Safety Wearable Featuring Iris-Based Authentication, AI-Driven Threat Intelligence, and Blockchain-Secured Evidence Storage"* under Bio-Medical Engineering.',
     'I have had the privilege of working as a **Software Engineer Intern at Ibee Analytics**, where I built a Predictive Marketing Dashboard with ML forecasting, and as a **Web Developer Intern at Hapus Infotech**, where I designed responsive full-stack interfaces — spanning React frontends to Django backends.',
     'I thrive on building software that solves real problems — whether crafting elegant UI, designing RESTful APIs, or integrating AI models into production applications. I am committed to clean, maintainable code and continuous learning.',
   ],
@@ -587,8 +600,9 @@ export const education = [
       'Participated in District Police Hackathons and technical webinars.'
     ],
     project: {
-      title: 'EmpowerHer Wearable Safety Ring',
-      description: 'Developed an IoT-enabled safety wearable featuring panic trigger buttons, real-time GPS coordinates transmission, and Firebase telemetry backend.'
+      title: 'Gestura – A Real-Time Bidirectional Sign Language Communication Framework',
+      description: 'Developed a bidirectional AI framework converting sign language to speech and vice-versa in real time using MediaPipe Hands tracking, a Bidirectional GRU with self-attention, and OpenAI Whisper ASR.',
+      github: 'https://github.com/Mayilraj13/Gestura-A-Real-Time-Bidirectional-Sign-Language-Communication-Framework'
     },
     icon: 'graduation-cap-line',
     color: 'blue'

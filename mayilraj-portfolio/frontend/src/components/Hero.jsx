@@ -102,7 +102,7 @@ export default function Hero() {
               <div className="relative">
                 {/* Decorative glow */}
                 <div className="absolute inset-0 rounded-full bg-gradient-to-br from-[#2D5A87]/30 to-blue-300/40 blur-xl scale-110" />
-                <div className="relative w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-white shadow-2xl">
+                <div className="relative w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white shadow-2xl">
                   <img
                     src={personalInfo.photo}
                     alt={`${personalInfo.name} — MERN Stack Developer`}
@@ -113,10 +113,6 @@ export default function Hero() {
                         '<div class="w-full h-full flex items-center justify-center bg-[#2D5A87]/10 text-[#2D5A87] text-5xl font-bold">MR</div>'
                     }}
                   />
-                </div>
-                {/* Available badge */}
-                <div className="absolute bottom-3 right-3 bg-white rounded-full px-3 py-1 shadow-lg flex items-center gap-1.5 text-xs font-semibold text-gray-700 border border-gray-100">
-                  <span className="w-2 h-2 rounded-full bg-green-500" /> Available
                 </div>
               </div>
             </div>

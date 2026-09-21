@@ -132,9 +132,22 @@ export default function Education() {
                     {/* Major Project Box (Optional) */}
                     {edu.project && (
                       <div className="mt-5 p-4 bg-gray-50 border border-gray-100 rounded-xl">
-                        <span className="inline-flex items-center gap-1.5 text-[9px] sm:text-2xs uppercase tracking-wider font-bold text-gray-400 mb-1.5">
-                          <i className="ri-folder-line text-[#2D5A87]"></i> Major Project
-                        </span>
+                        <div className="flex items-center justify-between gap-2 mb-1.5">
+                          <span className="inline-flex items-center gap-1.5 text-[9px] sm:text-2xs uppercase tracking-wider font-bold text-gray-400">
+                            <i className="ri-folder-line text-[#2D5A87]"></i> Major Project
+                          </span>
+                          {edu.project.github && (
+                            <a
+                              href={edu.project.github}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-1 text-[10px] sm:text-xs font-semibold text-[#2D5A87] hover:text-[#2D5A87]/80 transition-colors"
+                              onClick={(e) => e.stopPropagation()}
+                            >
+                              <i className="ri-github-fill text-xs sm:text-sm"></i> GitHub
+                            </a>
+                          )}
+                        </div>
                         <h6 className="text-xs sm:text-sm font-bold text-[#2D5A87] mb-1">
                           {edu.project.title}
                         </h6>
