@@ -21,19 +21,19 @@ function categorizeProject(p) {
 
 function DetailRow({ icon, label, text }) {
   return (
-    <div className="flex gap-3 text-left">
-      <div className="flex-shrink-0 w-7 h-7 flex items-center justify-center bg-indigo-500/15 text-indigo-400 rounded-lg mt-0.5 border border-indigo-500/20">
-        <i className={`ri-${icon} text-sm`} />
+    <div className="flex gap-2.5 text-left">
+      <div className="flex-shrink-0 w-6 h-6 flex items-center justify-center bg-indigo-500/15 text-indigo-400 rounded-md mt-0.5 border border-indigo-500/20">
+        <i className={`ri-${icon} text-xs`} />
       </div>
       <div>
-        <span className="text-[11px] font-bold text-gray-400 uppercase tracking-wider font-['Space_Grotesk']">{label}</span>
-        <p className="text-xs sm:text-sm text-gray-300 mt-0.5 leading-relaxed">{text}</p>
+        <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider font-['Space_Grotesk']">{label}</span>
+        <p className="text-xs text-gray-300 mt-0.5 leading-relaxed">{text}</p>
       </div>
     </div>
   )
 }
 
-function ProjectCard({ project, isFeatured = false }) {
+function ProjectCard({ project }) {
   const [expanded, setExpanded] = useState(false)
 
   return (
@@ -42,17 +42,15 @@ function ProjectCard({ project, isFeatured = false }) {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, scale: 0.95 }}
-      transition={{ duration: 0.4 }}
-      className={`group rounded-2xl bg-[#12121c] border border-white/10 hover:border-indigo-500/50 overflow-hidden transition-all duration-300 hover:shadow-[0_12px_40px_rgba(99,102,241,0.2)] flex flex-col ${
-        isFeatured ? 'md:col-span-2 lg:col-span-2' : ''
-      }`}
+      transition={{ duration: 0.3 }}
+      className="group rounded-2xl bg-[#12121c] border border-white/10 hover:border-indigo-500/50 overflow-hidden transition-all duration-300 hover:shadow-[0_10px_30px_rgba(99,102,241,0.2)] flex flex-col"
     >
-      {/* Media Banner */}
-      <div className={`relative overflow-hidden ${isFeatured ? 'h-64 sm:h-72' : 'h-52 sm:h-56'}`}>
+      {/* Media Banner - Show pictures in full without clipping */}
+      <div className="relative w-full aspect-[16/10] bg-[#0c0c16] overflow-hidden border-b border-white/[0.06] flex items-center justify-center p-2.5">
         <img
           src={project.image}
           alt={project.title}
-          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+          className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
           onError={(e) => {
             if (!e.target.dataset.fallback) {
               e.target.dataset.fallback = 'true'
@@ -60,14 +58,6 @@ function ProjectCard({ project, isFeatured = false }) {
             }
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#12121c] via-[#12121c]/40 to-transparent" />
-
-        {/* Featured / Hero Badge */}
-        {isFeatured && (
-          <div className="absolute top-4 left-4 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-indigo-600/90 text-white text-xs font-semibold backdrop-blur-md shadow-lg font-['Space_Grotesk']">
-            <span>⭐ Featured Build</span>
-          </div>
-        )}
 
         {/* GitHub Quick Link in Image Top Right */}
         {project.github && (
@@ -76,31 +66,31 @@ function ProjectCard({ project, isFeatured = false }) {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub Repository"
-            className="absolute top-4 right-4 w-9 h-9 rounded-xl bg-[#0a0a0f]/80 hover:bg-indigo-600 text-gray-300 hover:text-white border border-white/15 backdrop-blur-md flex items-center justify-center transition-colors shadow-md"
+            className="absolute top-3 right-3 w-8 h-8 rounded-lg bg-[#0a0a0f]/80 hover:bg-indigo-600 text-gray-300 hover:text-white border border-white/15 backdrop-blur-md flex items-center justify-center transition-colors shadow-md"
           >
-            <i className="ri-github-fill text-lg" />
+            <i className="ri-github-fill text-base" />
           </a>
         )}
       </div>
 
       {/* Content Container */}
-      <div className="p-5 sm:p-7 flex flex-col flex-1">
+      <div className="p-4 sm:p-5 flex flex-col flex-1">
         {/* Title */}
-        <h3 className="text-xl sm:text-2xl font-bold text-white mb-2 leading-tight font-['Space_Grotesk'] group-hover:text-indigo-300 transition-colors">
+        <h3 className="text-base sm:text-lg font-bold text-white mb-1.5 leading-snug font-['Space_Grotesk'] group-hover:text-indigo-300 transition-colors">
           {project.title}
         </h3>
 
         {/* Summary */}
-        <p className="text-sm text-gray-400 mb-4 leading-relaxed line-clamp-2">
+        <p className="text-xs sm:text-sm text-gray-400 mb-3 leading-relaxed line-clamp-2">
           {project.summary || project.description}
         </p>
 
         {/* Tags */}
-        <div className="flex flex-wrap gap-1.5 mb-5">
+        <div className="flex flex-wrap gap-1 mb-4">
           {project.tags?.map((t) => (
             <span 
               key={t} 
-              className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-[#1a1a28] text-gray-300 border border-white/[0.08]"
+              className="px-2 py-0.5 rounded-md text-[11px] font-medium bg-[#1a1a28] text-gray-300 border border-white/[0.06]"
             >
               {t}
             </span>
@@ -109,15 +99,15 @@ function ProjectCard({ project, isFeatured = false }) {
 
         {/* Key Features */}
         {project.features && (
-          <div className="mb-5 pt-4 border-t border-white/[0.06]">
-            <p className="text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-2 font-['Space_Grotesk']">
+          <div className="mb-4 pt-3 border-t border-white/[0.06]">
+            <p className="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-1.5 font-['Space_Grotesk']">
               Key Capabilities
             </p>
-            <ul className="space-y-1.5">
-              {project.features.slice(0, 3).map((f, i) => (
-                <li key={i} className="flex items-start gap-2 text-xs sm:text-sm text-gray-300">
+            <ul className="space-y-1">
+              {project.features.slice(0, 2).map((f, i) => (
+                <li key={i} className="flex items-start gap-1.5 text-xs text-gray-300">
                   <i className="ri-check-line text-indigo-400 mt-0.5 flex-shrink-0" />
-                  <span>{f}</span>
+                  <span className="line-clamp-1">{f}</span>
                 </li>
               ))}
             </ul>
@@ -126,14 +116,14 @@ function ProjectCard({ project, isFeatured = false }) {
 
         {/* Expandable Engineering Details */}
         {(project.why || project.problem || project.challenge) && (
-          <div className="mb-5">
+          <div className="mb-4">
             <button
               onClick={() => setExpanded(!expanded)}
-              className="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-indigo-400 hover:text-indigo-300 transition-colors cursor-pointer py-1 font-['Space_Grotesk']"
+              className="inline-flex items-center gap-1.5 text-xs font-semibold text-indigo-400 hover:text-indigo-300 transition-colors cursor-pointer py-0.5 font-['Space_Grotesk']"
             >
-              <i className={`ri-${expanded ? 'subtract' : 'add'}-circle-line text-base`} />
-              <span>{expanded ? 'Hide Engineering Deep-Dive' : 'View Engineering Process'}</span>
-              <i className={`ri-arrow-${expanded ? 'up' : 'down'}-s-line`} />
+              <i className={`ri-${expanded ? 'subtract' : 'add'}-circle-line text-sm`} />
+              <span>{expanded ? 'Hide Details' : 'View Engineering Notes'}</span>
+              <i className={`ri-arrow-${expanded ? 'up' : 'down'}-s-line text-xs`} />
             </button>
 
             <AnimatePresence>
@@ -142,7 +132,7 @@ function ProjectCard({ project, isFeatured = false }) {
                   initial={{ opacity: 0, height: 0 }}
                   animate={{ opacity: 1, height: 'auto' }}
                   exit={{ opacity: 0, height: 0 }}
-                  className="bg-[#181826] rounded-xl p-4 mt-3 space-y-3 border border-white/10 overflow-hidden"
+                  className="bg-[#181826] rounded-xl p-3.5 mt-2 space-y-2.5 border border-white/10 overflow-hidden"
                 >
                   {project.why && <DetailRow icon="question-line" label="Why I Built It" text={project.why} />}
                   {project.problem && <DetailRow icon="error-warning-line" label="Problem Solved" text={project.problem} />}
@@ -155,18 +145,18 @@ function ProjectCard({ project, isFeatured = false }) {
         )}
 
         {/* Footer Actions */}
-        <div className="mt-auto pt-4 border-t border-white/[0.08] flex items-center justify-between">
+        <div className="mt-auto pt-3 border-t border-white/[0.08] flex items-center justify-between">
           <a
             href={project.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-[#1a1a28] hover:bg-indigo-600 text-white border border-white/10 hover:border-indigo-500/50 transition-all cursor-pointer font-['Space_Grotesk']"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-[#1a1a28] hover:bg-indigo-600 text-white border border-white/10 hover:border-indigo-500/50 transition-all cursor-pointer font-['Space_Grotesk']"
           >
-            <i className="ri-github-fill text-base" />
-            <span>Source Code</span>
+            <i className="ri-github-fill text-sm" />
+            <span>Code</span>
           </a>
 
-          <span className="text-[11px] text-gray-500 font-mono">
+          <span className="text-[10px] text-gray-500 font-mono">
             {project.tags?.[0] || 'Software'}
           </span>
         </div>
@@ -204,7 +194,7 @@ export default function Projects() {
           </p>
 
           {/* Filter Pills */}
-          <div className="flex flex-wrap items-center justify-center gap-2 mt-8">
+          <div className="flex flex-wrap items-center justify-center gap-2 mt-6">
             {filterCategories.map((cat) => {
               const isActive = selectedFilter === cat
               return (
@@ -224,19 +214,14 @@ export default function Projects() {
           </div>
         </div>
 
-        {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 sm:gap-8 max-w-7xl mx-auto">
-          {filteredProjects.map((p, idx) => {
-            // Feature Gestura as first card
-            const isHero = p.title.toLowerCase().includes('gestura') || idx === 0
-            return (
-              <ProjectCard 
-                key={p.title} 
-                project={p} 
-                isFeatured={isHero && selectedFilter === 'All'} 
-              />
-            )
-          })}
+        {/* Projects 3-Column Responsive Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 max-w-7xl mx-auto">
+          {filteredProjects.map((p) => (
+            <ProjectCard 
+              key={p.title} 
+              project={p} 
+            />
+          ))}
         </div>
 
       </div>
