@@ -1,7 +1,7 @@
 import { useState } from 'react'
+import { motion } from 'framer-motion'
 import { skills } from '../data/portfolioData'
 
-// ── Official logo map (Devicons & Simple Icons CDN) ────────────────────────
 const logoMap = {
   'React.js':       'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg',
   'HTML5':          'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg',
@@ -32,104 +32,110 @@ const logoMap = {
   'Arduino IDE':    'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/arduino/arduino-original.svg',
 }
 
-// Section header left-border accent colour
 const sectionAccent = {
-  Frontend:                'border-blue-500',
-  Backend:                 'border-green-500',
-  Databases:               'border-indigo-500',
-  'Programming Languages': 'border-yellow-500',
-  'Cloud & DevOps':        'border-sky-500',
-  Tools:                   'border-gray-400',
+  Frontend:                'border-cyan-500 text-cyan-400',
+  Backend:                 'border-emerald-500 text-emerald-400',
+  Databases:               'border-indigo-500 text-indigo-400',
+  'Programming Languages': 'border-amber-500 text-amber-400',
+  'Cloud & DevOps':        'border-purple-500 text-purple-400',
+  Tools:                   'border-gray-500 text-gray-400',
 }
 
-// ── Skill icon — official logo or fallback remixicon ──────────────────────
 function SkillIcon({ item, size = 'lg' }) {
   const [hasError, setHasError] = useState(false)
   const logo = logoMap[item.name]
-  const dim = size === 'lg' ? 'w-8 h-8' : 'w-7 h-7'
-
-  // Darker logos — give them a light bg padding so they're clearly visible
-  const needsBg = ['Django', 'Flask', 'Express.js', 'GitHub', 'Vercel', 'Render'].includes(item.name)
+  const dim = size === 'lg' ? 'w-7 h-7 sm:w-8 sm:h-8' : 'w-6 h-6'
 
   if (logo && !hasError) {
     return (
       <img
         src={logo}
         alt={item.name}
-        className={`${dim} object-contain ${needsBg ? 'p-0.5' : ''}`}
+        className={`${dim} object-contain`}
         onError={() => setHasError(true)}
       />
     )
   }
-  // Fallback to remixicon
-  return <i className={`ri-${item.icon} text-2xl text-gray-500`} />
+  return <i className={`ri-${item.icon} text-xl text-indigo-400`} />
 }
 
-// ── Skill card (horizontal: logo · name · sub) ────────────────────────────
 function SkillCard({ item }) {
-  const needsBg = ['Django', 'Flask', 'Express.js', 'GitHub', 'Vercel'].includes(item.name)
   return (
-    <div className="bg-white rounded-xl p-4 border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-0.5">
-      <div className="flex items-center gap-3">
-        <div className={`w-11 h-11 flex-shrink-0 flex items-center justify-center rounded-lg ${needsBg ? 'bg-gray-100' : 'bg-white'} border border-gray-100`}>
-          <SkillIcon item={item} size="lg" />
-        </div>
-        <div className="min-w-0">
-          <h4 className="text-sm sm:text-base font-bold text-gray-800 leading-tight">{item.name}</h4>
-          {item.sub && <p className="text-xs text-gray-500 mt-0.5">{item.sub}</p>}
-        </div>
+    <motion.div 
+      whileHover={{ y: -3, scale: 1.02 }}
+      className="bg-[#12121c] rounded-2xl p-4 border border-white/10 hover:border-indigo-500/50 transition-all duration-300 hover:shadow-[0_8px_24px_rgba(99,102,241,0.15)] flex items-center gap-3.5 group cursor-default"
+    >
+      <div className="w-11 h-11 flex-shrink-0 flex items-center justify-center rounded-xl bg-[#1a1a28] border border-white/[0.08] group-hover:border-indigo-500/30 transition-colors p-2">
+        <SkillIcon item={item} size="lg" />
       </div>
-    </div>
+      <div className="min-w-0">
+        <h4 className="text-sm sm:text-base font-bold text-white group-hover:text-indigo-300 transition-colors leading-tight font-['Space_Grotesk']">
+          {item.name}
+        </h4>
+        {item.sub && <p className="text-xs text-gray-400 mt-0.5 truncate">{item.sub}</p>}
+      </div>
+    </motion.div>
   )
 }
 
-// ── Tool card (centered: logo · name) ────────────────────────────────────
 function ToolCard({ item }) {
-  const needsBg = ['Django', 'Flask', 'Express.js', 'GitHub', 'Vercel', 'AWS', 'Arduino IDE'].includes(item.name)
   return (
-    <div className="bg-white rounded-xl p-3 sm:p-4 border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-0.5 flex flex-col items-center gap-2 text-center">
-      <div className={`w-10 h-10 flex items-center justify-center rounded-lg ${needsBg ? 'bg-gray-100' : 'bg-white'}`}>
+    <motion.div 
+      whileHover={{ y: -3, scale: 1.05 }}
+      className="bg-[#12121c] rounded-2xl p-3 sm:p-4 border border-white/10 hover:border-indigo-500/50 transition-all duration-300 hover:shadow-[0_6px_20px_rgba(99,102,241,0.15)] flex flex-col items-center gap-2 text-center group cursor-default"
+    >
+      <div className="w-10 h-10 flex items-center justify-center rounded-xl bg-[#1a1a28] border border-white/[0.08] group-hover:border-indigo-500/30 transition-colors p-2">
         <SkillIcon item={item} size="sm" />
       </div>
-      <span className="text-xs sm:text-sm font-semibold text-gray-700 leading-tight">{item.name}</span>
-    </div>
+      <span className="text-xs font-semibold text-gray-300 group-hover:text-white transition-colors leading-tight font-['Space_Grotesk']">
+        {item.name}
+      </span>
+    </motion.div>
   )
 }
 
-// ── Main component ─────────────────────────────────────────────────────────
 export default function Skills() {
   return (
-    <section id="skills" className="py-14 sm:py-20 md:py-24 bg-gradient-to-br from-gray-50 to-white">
-      <div className="container mx-auto px-4 sm:px-6">
+    <section id="skills" className="pt-8 pb-16 sm:pt-10 sm:pb-20 bg-[#0a0a0f] relative scroll-mt-20">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
 
         {/* Heading */}
-        <div className="text-center mb-12 sm:mb-16">
-          <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-[#2D5A87] mb-4">Skills &amp; Technologies</h2>
-          <div className="w-20 sm:w-24 h-1 bg-[#2D5A87] mx-auto rounded-full" />
-          <p className="text-sm sm:text-lg text-gray-500 max-w-xl mx-auto mt-4">
-            Technologies I work with across the full stack
+        <div className="text-center mb-8 sm:mb-10">
+          <span className="text-xs uppercase tracking-widest text-indigo-400 font-bold mb-2 block font-['Space_Grotesk']">
+            Technical Stack
+          </span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white mb-4 tracking-tight font-['Space_Grotesk']">
+            Skills &amp; Technologies
+          </h2>
+          <div className="w-20 h-1 bg-gradient-to-r from-indigo-500 to-purple-500 mx-auto rounded-full mb-4" />
+          <p className="text-sm sm:text-base text-gray-400 max-w-xl mx-auto">
+            Tools, languages, and frameworks leveraged across frontend, backend, AI models, and IoT prototypes.
           </p>
         </div>
 
-        {/* Skill groups */}
+        {/* Skill Groups */}
         <div className="max-w-6xl mx-auto space-y-12">
           {skills.categories.map((cat) => {
-            const accent = sectionAccent[cat.title] || 'border-gray-400'
+            const accentClass = sectionAccent[cat.title] || 'border-indigo-500 text-indigo-400'
             return (
               <div key={cat.title}>
-                {/* Group header */}
-                <div className={`flex items-center gap-3 mb-5 pl-4 border-l-4 ${accent}`}>
-                  <i className={`ri-${cat.icon} text-[#2D5A87] text-xl`} />
-                  <h3 className="text-lg sm:text-xl font-bold text-gray-800">{cat.title}</h3>
-                  <span className="text-xs text-gray-400 font-medium">
-                    {cat.items.length} skill{cat.items.length !== 1 ? 's' : ''}
+                {/* Group Header */}
+                <div className={`flex items-center gap-3 mb-5 pl-3.5 border-l-4 ${accentClass.split(' ')[0]}`}>
+                  <i className={`ri-${cat.icon} text-lg ${accentClass.split(' ')[1]}`} />
+                  <h3 className="text-lg sm:text-xl font-bold text-white font-['Space_Grotesk']">
+                    {cat.title}
+                  </h3>
+                  <span className="text-xs text-gray-500 font-medium">
+                    ({cat.items.length})
                   </span>
                 </div>
 
-                {/* Cards grid */}
+                {/* Cards Grid */}
                 {cat.small ? (
-                  <div className="grid grid-cols-3 sm:grid-cols-6 gap-3">
-                    {cat.items.map((item) => <ToolCard key={item.name} item={item} />)}
+                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3 sm:gap-4">
+                    {cat.items.map((item) => (
+                      <ToolCard key={item.name} item={item} />
+                    ))}
                   </div>
                 ) : (
                   <div className={`grid gap-3 sm:gap-4 ${
@@ -137,7 +143,9 @@ export default function Skills() {
                       ? 'grid-cols-1 sm:grid-cols-3'
                       : 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-4'
                   }`}>
-                    {cat.items.map((item) => <SkillCard key={item.name} item={item} />)}
+                    {cat.items.map((item) => (
+                      <SkillCard key={item.name} item={item} />
+                    ))}
                   </div>
                 )}
               </div>

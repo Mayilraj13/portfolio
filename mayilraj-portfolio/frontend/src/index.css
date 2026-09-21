@@ -1,1 +1,40 @@
 @import "tailwindcss";
+
+@theme {
+  --color-dark-bg: #0a0a0f;
+  --color-dark-card: #12121c;
+  --color-dark-elevated: #191926;
+  --color-dark-border: rgba(255, 255, 255, 0.08);
+  --color-dark-border-hover: rgba(99, 102, 241, 0.35);
+
+  --color-accent: #6366f1;
+  --color-accent-hover: #4f46e5;
+  --color-accent-light: #818cf8;
+  --color-accent-glow: rgba(99, 102, 241, 0.2);
+
+  --font-heading: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    color-scheme: dark;
+  }
+
+  body {
+    font-family: var(--font-body);
+    background-color: var(--color-dark-bg);
+    color: #f3f4f6;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+  }
+
+  ::selection {
+    background-color: rgba(99, 102, 241, 0.35);
+    color: #ffffff;
+  }
+}

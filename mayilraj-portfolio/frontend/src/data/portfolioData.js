@@ -584,7 +584,7 @@ export const education = [
     school: 'University College of Engineering, BIT Campus, Trichy',
     university: 'Affiliated to Anna University',
     period: '2023 – 2026',
-    score: { label: 'CGPA', value: '7.2 / 10' },
+    score: { label: 'CGPA', value: '7.6 / 10' },
     coursework: [
       'Data Structures & Algorithms',
       'Database Management Systems (DBMS)',

@@ -1,30 +1,80 @@
+import { motion } from 'framer-motion'
 import { personalInfo } from '../data/portfolioData'
 
 export default function Footer() {
   const year = new Date().getFullYear()
+
   return (
-    <footer className="bg-gray-900 text-white py-12">
-      <div className="container mx-auto px-6">
-        <div className="flex flex-col md:flex-row justify-between items-center">
-          <div className="text-center md:text-left mb-4 md:mb-0">
-            <a href="#" className="text-2xl font-bold text-white" style={{ fontFamily: "'Pacifico', cursive" }}>{personalInfo.name}</a>
-            <p className="text-gray-400 text-sm mt-1">{personalInfo.title}</p>
+    <footer className="bg-[#07070b] border-t border-white/[0.06] text-white py-12">
+      <div className="container mx-auto px-4 sm:px-6">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+          
+          {/* Brand & Title */}
+          <div className="text-center md:text-left flex items-center gap-3">
+            <div className="w-9 h-9 rounded-xl bg-[#141422] border border-white/10 flex items-center justify-center font-bold text-indigo-400 font-['Space_Grotesk'] text-sm shadow-inner">
+              MR
+            </div>
+            <div>
+              <a 
+                href="#home" 
+                onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+                className="text-lg font-bold text-white hover:text-indigo-400 transition-colors font-['Space_Grotesk']"
+              >
+                {personalInfo.name}
+              </a>
+              <p className="text-gray-400 text-xs">{personalInfo.title}</p>
+            </div>
           </div>
-          <div className="flex space-x-6">
-            <a href={personalInfo.github} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
-              <i className="ri-github-fill ri-xl"></i></a>
-            <a href={personalInfo.linkedin} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
-              <i className="ri-linkedin-fill ri-xl"></i></a>
-            <a href={`mailto:${personalInfo.email}`} className="text-gray-400 hover:text-white transition-colors">
-              <i className="ri-mail-fill ri-xl"></i></a>
+
+          {/* Social Links */}
+          <div className="flex items-center gap-3">
+            <motion.a 
+              whileHover={{ scale: 1.1, y: -2 }}
+              href={personalInfo.github} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="w-10 h-10 rounded-xl bg-[#12121c] border border-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:border-white/30 transition-colors"
+              aria-label="GitHub"
+            >
+              <i className="ri-github-fill text-lg"></i>
+            </motion.a>
+            <motion.a 
+              whileHover={{ scale: 1.1, y: -2 }}
+              href={personalInfo.linkedin} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="w-10 h-10 rounded-xl bg-[#12121c] border border-white/10 flex items-center justify-center text-gray-400 hover:text-[#0077b5] hover:border-indigo-500/50 transition-colors"
+              aria-label="LinkedIn"
+            >
+              <i className="ri-linkedin-fill text-lg"></i>
+            </motion.a>
+            <motion.a 
+              whileHover={{ scale: 1.1, y: -2 }}
+              href={`https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(personalInfo.email)}`}
+              target="_blank"
+              rel="noopener noreferrer" 
+              className="w-10 h-10 rounded-xl bg-[#12121c] border border-white/10 flex items-center justify-center text-gray-400 hover:text-indigo-400 hover:border-indigo-500/50 transition-colors"
+              aria-label="Email via Gmail"
+            >
+              <i className="ri-mail-fill text-lg"></i>
+            </motion.a>
           </div>
+
         </div>
-        <div className="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-gray-400 text-sm">&copy; {year} {personalInfo.name}. All rights reserved.</p>
-          <a href="#home" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
-            className="text-gray-400 hover:text-white transition-colors text-sm mt-4 md:mt-0">
-            Back to Top <i className="ri-arrow-up-line ri-sm ml-1"></i>
-          </a>
+
+        {/* Bottom Bar */}
+        <div className="border-t border-white/[0.06] mt-8 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-500">
+          <p>&copy; {year} {personalInfo.name}. All rights reserved.</p>
+          <p className="text-gray-500 text-[11px]">
+            Designed &amp; Engineered with React 19, Vite, Tailwind CSS &amp; Framer Motion
+          </p>
+          <button 
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            className="inline-flex items-center gap-1.5 text-gray-400 hover:text-indigo-400 transition-colors cursor-pointer group font-['Space_Grotesk']"
+          >
+            <span>Back to Top</span>
+            <i className="ri-arrow-up-line group-hover:-translate-y-0.5 transition-transform"></i>
+          </button>
         </div>
       </div>
     </footer>

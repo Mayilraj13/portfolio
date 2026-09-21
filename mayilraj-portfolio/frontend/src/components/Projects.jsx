@@ -1,70 +1,58 @@
-import { useState } from 'react'
+import { useState, useMemo } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import { projects } from '../data/portfolioData'
 
-// ── Tag colour map ─────────────────────────────────────────────────────────
-const tagColorMap = {
-  // Gestura tags
-  MediaPipe:   'bg-green-50 text-green-700 border-green-200',
-  TensorFlow:  'bg-orange-50 text-orange-700 border-orange-200',
-  'Whisper ASR': 'bg-gray-50 text-gray-700 border-gray-200',
-  NLP:         'bg-violet-50 text-violet-700 border-violet-200',
-  OpenCV:      'bg-blue-50 text-blue-700 border-blue-200',
+const filterCategories = ['All', 'AI & ML', 'Full-Stack', 'IoT & Embedded']
 
-  React:       'bg-blue-50 text-blue-700 border-blue-200',
-  'Chart.js':  'bg-blue-50 text-blue-700 border-blue-200',
-  Python:      'bg-yellow-50 text-yellow-700 border-yellow-200',
-  Flask:       'bg-gray-50 text-gray-700 border-gray-200',
-  Django:      'bg-green-50 text-green-700 border-green-200',
-  'Prophet (ML)': 'bg-purple-50 text-purple-700 border-purple-200',
-  BeautifulSoup: 'bg-indigo-50 text-indigo-700 border-indigo-200',
-  'Android Studio': 'bg-green-50 text-green-700 border-green-200',
-  Java:        'bg-orange-50 text-orange-700 border-orange-200',
-  'Google Maps SDK': 'bg-blue-50 text-blue-700 border-blue-200',
-  Firebase:    'bg-yellow-50 text-yellow-700 border-yellow-200',
-  'AI Threat Detection': 'bg-rose-50 text-rose-700 border-rose-200',
-  JavaScript:  'bg-yellow-50 text-yellow-700 border-yellow-200',
-  Bootstrap:   'bg-purple-50 text-purple-700 border-purple-200',
-  SQLite:      'bg-blue-50 text-blue-700 border-blue-200',
-  Arduino:     'bg-teal-50 text-teal-700 border-teal-200',
-  'Embedded C':'bg-gray-50 text-gray-700 border-gray-200',
-  'HC-SR04':   'bg-cyan-50 text-cyan-700 border-cyan-200',
-  'L298N Driver': 'bg-red-50 text-red-700 border-red-200',
-  Robotics:    'bg-indigo-50 text-indigo-700 border-indigo-200',
-  'MQ-2 Sensor': 'bg-orange-50 text-orange-700 border-orange-200',
-  'Safety Systems': 'bg-red-50 text-red-700 border-red-200',
-  'Arduino Uno': 'bg-teal-50 text-teal-700 border-teal-200',
-  Automation:  'bg-green-50 text-green-700 border-green-200',
+function categorizeProject(p) {
+  const allText = (p.title + ' ' + (p.tags || []).join(' ') + ' ' + (p.summary || '')).toLowerCase()
+  const cats = ['All']
+  if (allText.includes('ai') || allText.includes('ml') || allText.includes('whisper') || allText.includes('mediapipe') || allText.includes('yolo') || allText.includes('detection')) {
+    cats.push('AI & ML')
+  }
+  if (allText.includes('react') || allText.includes('django') || allText.includes('flask') || allText.includes('full-stack') || allText.includes('web') || allText.includes('node')) {
+    cats.push('Full-Stack')
+  }
+  if (allText.includes('iot') || allText.includes('embedded') || allText.includes('arduino') || allText.includes('esp32') || allText.includes('sensor') || allText.includes('c/c++')) {
+    cats.push('IoT & Embedded')
+  }
+  return cats
 }
-const defaultTag = 'bg-gray-100 text-gray-700 border-gray-200'
 
-// ── Engineering detail row ─────────────────────────────────────────────────
 function DetailRow({ icon, label, text }) {
   return (
-    <div className="flex gap-3">
-      <div className="flex-shrink-0 w-7 h-7 flex items-center justify-center bg-[#2D5A87]/10 rounded-lg mt-0.5">
-        <i className={`ri-${icon} text-[#2D5A87] text-sm`} />
+    <div className="flex gap-3 text-left">
+      <div className="flex-shrink-0 w-7 h-7 flex items-center justify-center bg-indigo-500/15 text-indigo-400 rounded-lg mt-0.5 border border-indigo-500/20">
+        <i className={`ri-${icon} text-sm`} />
       </div>
       <div>
-        <span className="text-xs font-bold text-gray-500 uppercase tracking-wide">{label}</span>
-        <p className="text-sm text-gray-700 mt-0.5 leading-relaxed">{text}</p>
+        <span className="text-[11px] font-bold text-gray-400 uppercase tracking-wider font-['Space_Grotesk']">{label}</span>
+        <p className="text-xs sm:text-sm text-gray-300 mt-0.5 leading-relaxed">{text}</p>
       </div>
     </div>
   )
 }
 
-// ── Project card ───────────────────────────────────────────────────────────
-function ProjectCard({ project }) {
+function ProjectCard({ project, isFeatured = false }) {
   const [expanded, setExpanded] = useState(false)
 
   return (
-    <div className="bg-white rounded-2xl shadow-md hover:shadow-xl border border-gray-100 overflow-hidden transition-all duration-300 flex flex-col">
-
-      {/* Cover image */}
-      <div className="relative h-52 sm:h-60 overflow-hidden">
+    <motion.div 
+      layout
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, scale: 0.95 }}
+      transition={{ duration: 0.4 }}
+      className={`group rounded-2xl bg-[#12121c] border border-white/10 hover:border-indigo-500/50 overflow-hidden transition-all duration-300 hover:shadow-[0_12px_40px_rgba(99,102,241,0.2)] flex flex-col ${
+        isFeatured ? 'md:col-span-2 lg:col-span-2' : ''
+      }`}
+    >
+      {/* Media Banner */}
+      <div className={`relative overflow-hidden ${isFeatured ? 'h-64 sm:h-72' : 'h-52 sm:h-56'}`}>
         <img
           src={project.image}
           alt={project.title}
-          className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
           onError={(e) => {
             if (!e.target.dataset.fallback) {
               e.target.dataset.fallback = 'true'
@@ -72,99 +60,183 @@ function ProjectCard({ project }) {
             }
           }}
         />
-        {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#12121c] via-[#12121c]/40 to-transparent" />
+
+        {/* Featured / Hero Badge */}
+        {isFeatured && (
+          <div className="absolute top-4 left-4 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-indigo-600/90 text-white text-xs font-semibold backdrop-blur-md shadow-lg font-['Space_Grotesk']">
+            <span>⭐ Featured Build</span>
+          </div>
+        )}
+
+        {/* GitHub Quick Link in Image Top Right */}
+        {project.github && (
+          <a
+            href={project.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub Repository"
+            className="absolute top-4 right-4 w-9 h-9 rounded-xl bg-[#0a0a0f]/80 hover:bg-indigo-600 text-gray-300 hover:text-white border border-white/15 backdrop-blur-md flex items-center justify-center transition-colors shadow-md"
+          >
+            <i className="ri-github-fill text-lg" />
+          </a>
+        )}
       </div>
 
-      {/* Main content */}
-      <div className="p-5 sm:p-6 flex flex-col flex-1">
+      {/* Content Container */}
+      <div className="p-5 sm:p-7 flex flex-col flex-1">
+        {/* Title */}
+        <h3 className="text-xl sm:text-2xl font-bold text-white mb-2 leading-tight font-['Space_Grotesk'] group-hover:text-indigo-300 transition-colors">
+          {project.title}
+        </h3>
 
-        {/* Title + summary */}
-        <h3 className="text-lg sm:text-xl font-bold text-[#2D5A87] mb-1 leading-tight">{project.title}</h3>
-        <p className="text-sm text-gray-500 mb-3 leading-relaxed">{project.summary || project.description}</p>
+        {/* Summary */}
+        <p className="text-sm text-gray-400 mb-4 leading-relaxed line-clamp-2">
+          {project.summary || project.description}
+        </p>
 
-        {/* Tech stack tags */}
-        <div className="flex flex-wrap gap-1.5 mb-4">
-          {project.tags.map((t) => (
-            <span key={t} className={`px-2.5 py-0.5 rounded-full text-xs font-medium border ${tagColorMap[t] || defaultTag}`}>
+        {/* Tags */}
+        <div className="flex flex-wrap gap-1.5 mb-5">
+          {project.tags?.map((t) => (
+            <span 
+              key={t} 
+              className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-[#1a1a28] text-gray-300 border border-white/[0.08]"
+            >
               {t}
             </span>
           ))}
         </div>
 
-        {/* Key features */}
+        {/* Key Features */}
         {project.features && (
-          <div className="mb-4">
-            <p className="text-xs font-bold text-gray-500 uppercase tracking-wide mb-2">Key Features</p>
-            <ul className="space-y-1">
-              {project.features.map((f, i) => (
-                <li key={i} className="flex items-start gap-2 text-sm text-gray-700">
-                  <i className="ri-check-line text-[#2D5A87] mt-0.5 flex-shrink-0" />
-                  {f}
+          <div className="mb-5 pt-4 border-t border-white/[0.06]">
+            <p className="text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-2 font-['Space_Grotesk']">
+              Key Capabilities
+            </p>
+            <ul className="space-y-1.5">
+              {project.features.slice(0, 3).map((f, i) => (
+                <li key={i} className="flex items-start gap-2 text-xs sm:text-sm text-gray-300">
+                  <i className="ri-check-line text-indigo-400 mt-0.5 flex-shrink-0" />
+                  <span>{f}</span>
                 </li>
               ))}
             </ul>
           </div>
         )}
 
-        {/* Engineering details — collapsible */}
-        {(project.why || project.problem) && (
-          <>
+        {/* Expandable Engineering Details */}
+        {(project.why || project.problem || project.challenge) && (
+          <div className="mb-5">
             <button
               onClick={() => setExpanded(!expanded)}
-              className="flex items-center gap-2 text-sm font-semibold text-[#2D5A87] hover:text-[#2D5A87]/80 transition-colors mb-3 group"
+              className="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-indigo-400 hover:text-indigo-300 transition-colors cursor-pointer py-1 font-['Space_Grotesk']"
             >
-              <i className={`ri-${expanded ? 'subtract' : 'add'}-circle-line transition-transform`} />
-              {expanded ? 'Hide' : 'Show'} Engineering Details
-              <i className={`ri-arrow-${expanded ? 'up' : 'down'}-s-line text-xs ml-auto group-hover:translate-y-0.5 transition-transform`} />
+              <i className={`ri-${expanded ? 'subtract' : 'add'}-circle-line text-base`} />
+              <span>{expanded ? 'Hide Engineering Deep-Dive' : 'View Engineering Process'}</span>
+              <i className={`ri-arrow-${expanded ? 'up' : 'down'}-s-line`} />
             </button>
 
-            {expanded && (
-              <div className="bg-gray-50 rounded-xl p-4 mb-4 space-y-3 border border-gray-100 animate-in">
-                {project.why      && <DetailRow icon="question-line"    label="Why I built it"         text={project.why} />}
-                {project.problem  && <DetailRow icon="error-warning-line" label="Problem it solves"    text={project.problem} />}
-                {project.challenge&& <DetailRow icon="flashlight-line"  label="Biggest challenge"      text={project.challenge} />}
-                {project.learned  && <DetailRow icon="lightbulb-line"   label="What I learned"         text={project.learned} />}
-                {project.improve  && <DetailRow icon="refresh-line"     label="If I rebuilt it"        text={project.improve} />}
-              </div>
-            )}
-          </>
+            <AnimatePresence>
+              {expanded && (
+                <motion.div 
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: 'auto' }}
+                  exit={{ opacity: 0, height: 0 }}
+                  className="bg-[#181826] rounded-xl p-4 mt-3 space-y-3 border border-white/10 overflow-hidden"
+                >
+                  {project.why && <DetailRow icon="question-line" label="Why I Built It" text={project.why} />}
+                  {project.problem && <DetailRow icon="error-warning-line" label="Problem Solved" text={project.problem} />}
+                  {project.challenge && <DetailRow icon="flashlight-line" label="Engineering Hurdle" text={project.challenge} />}
+                  {project.learned && <DetailRow icon="lightbulb-line" label="Key Takeaway" text={project.learned} />}
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
         )}
 
-        {/* Action links */}
-        <div className="flex flex-wrap gap-3 pt-4 border-t border-gray-100 mt-auto">
+        {/* Footer Actions */}
+        <div className="mt-auto pt-4 border-t border-white/[0.08] flex items-center justify-between">
           <a
             href={project.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-4 py-2 bg-gray-900 text-white text-sm font-semibold rounded-lg hover:bg-gray-700 transition-colors"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-[#1a1a28] hover:bg-indigo-600 text-white border border-white/10 hover:border-indigo-500/50 transition-all cursor-pointer font-['Space_Grotesk']"
           >
-            <i className="ri-github-fill" /> GitHub
+            <i className="ri-github-fill text-base" />
+            <span>Source Code</span>
           </a>
+
+          <span className="text-[11px] text-gray-500 font-mono">
+            {project.tags?.[0] || 'Software'}
+          </span>
         </div>
       </div>
-    </div>
+    </motion.div>
   )
 }
 
-// ── Main section ───────────────────────────────────────────────────────────
 export default function Projects() {
-  return (
-    <section id="projects" className="py-16 sm:py-20 md:py-24 bg-white">
-      <div className="container mx-auto px-4 sm:px-6">
+  const [selectedFilter, setSelectedFilter] = useState('All')
 
-        <div className="text-center mb-12 sm:mb-16">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#2D5A87] mb-4">Featured Projects</h2>
-          <div className="w-24 h-1 bg-[#2D5A87] mx-auto rounded-full mb-4" />
-          <p className="text-base sm:text-lg text-gray-500 max-w-xl mx-auto">
-            Real products I've built — click <strong>Engineering Details</strong> on any card to see my thinking process.
+  const filteredProjects = useMemo(() => {
+    if (selectedFilter === 'All') return projects
+    return projects.filter((p) => categorizeProject(p).includes(selectedFilter))
+  }, [selectedFilter])
+
+  return (
+    <section id="projects" className="pt-8 pb-16 sm:pt-10 sm:pb-20 bg-[#0a0a0f] relative scroll-mt-20">
+      {/* Background ambient glow */}
+      <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-indigo-900/10 rounded-full blur-[140px] pointer-events-none" />
+
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
+        
+        {/* Section Header */}
+        <div className="text-center mb-8 sm:mb-10">
+          <span className="text-xs uppercase tracking-widest text-indigo-400 font-bold mb-2 block font-['Space_Grotesk']">
+            Featured Portfolio
+          </span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white mb-4 tracking-tight font-['Space_Grotesk']">
+            Engineered Projects
+          </h2>
+          <div className="w-20 h-1 bg-gradient-to-r from-indigo-500 to-purple-500 mx-auto rounded-full mb-4" />
+          <p className="text-sm sm:text-base text-gray-400 max-w-2xl mx-auto">
+            Production-grade full-stack architectures, real-time AI pipelines, and embedded control systems.
           </p>
+
+          {/* Filter Pills */}
+          <div className="flex flex-wrap items-center justify-center gap-2 mt-8">
+            {filterCategories.map((cat) => {
+              const isActive = selectedFilter === cat
+              return (
+                <button
+                  key={cat}
+                  onClick={() => setSelectedFilter(cat)}
+                  className={`px-4 py-2 rounded-full text-xs sm:text-sm font-medium transition-all cursor-pointer select-none font-['Space_Grotesk'] ${
+                    isActive
+                      ? 'bg-indigo-600 text-white shadow-[0_0_15px_rgba(99,102,241,0.4)] border border-indigo-400/50'
+                      : 'bg-[#141422] text-gray-400 hover:text-white border border-white/10 hover:border-white/20'
+                  }`}
+                >
+                  {cat}
+                </button>
+              )
+            })}
+          </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 max-w-7xl mx-auto">
-          {projects.map((p) => (
-            <ProjectCard key={p.title} project={p} />
-          ))}
+        {/* Projects Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 sm:gap-8 max-w-7xl mx-auto">
+          {filteredProjects.map((p, idx) => {
+            // Feature Gestura as first card
+            const isHero = p.title.toLowerCase().includes('gestura') || idx === 0
+            return (
+              <ProjectCard 
+                key={p.title} 
+                project={p} 
+                isFeatured={isHero && selectedFilter === 'All'} 
+              />
+            )
+          })}
         </div>
 
       </div>
