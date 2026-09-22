@@ -147,11 +147,23 @@ export default function Hero() {
                 <div className="flex items-center gap-2 pl-2">
                   <motion.a
                     whileHover={{ scale: 1.1, y: -2 }}
+                    href={`https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(personalInfo.email)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-11 h-11 rounded-xl bg-[#12121c] border border-white/10 flex items-center justify-center text-gray-300 hover:text-indigo-400 hover:border-indigo-500/50 transition-colors shadow-sm"
+                    aria-label="Send Email"
+                    title={`Email: ${personalInfo.email}`}
+                  >
+                    <i className="ri-mail-line text-xl" />
+                  </motion.a>
+                  <motion.a
+                    whileHover={{ scale: 1.1, y: -2 }}
                     href={personalInfo.github}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-11 h-11 rounded-xl bg-[#12121c] border border-white/10 flex items-center justify-center text-gray-300 hover:text-white hover:border-indigo-500/50 transition-colors shadow-sm"
                     aria-label="GitHub Profile"
+                    title="GitHub"
                   >
                     <i className="ri-github-fill text-xl" />
                   </motion.a>
@@ -162,6 +174,7 @@ export default function Hero() {
                     rel="noopener noreferrer"
                     className="w-11 h-11 rounded-xl bg-[#12121c] border border-white/10 flex items-center justify-center text-gray-300 hover:text-[#0077b5] hover:border-indigo-500/50 transition-colors shadow-sm"
                     aria-label="LinkedIn Profile"
+                    title="LinkedIn"
                   >
                     <i className="ri-linkedin-fill text-xl" />
                   </motion.a>
