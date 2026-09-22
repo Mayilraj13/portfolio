@@ -15,7 +15,7 @@ export default function Contact() {
     }
   }
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault()
     
     // Form Validation
@@ -34,30 +34,42 @@ export default function Contact() {
       return
     }
 
-    setStatus('Sending...')
-    setIsError(false)
+    // Build Formatted WhatsApp Message
+    const targetPhone = '917397532574'
+    const whatsappMessage = [
+      '🚀 *New Portfolio Inquiry — Mayilraj R*',
+      '━━━━━━━━━━━━━━━━━━━━━',
+      `👤 *Name:* ${form.name.trim()}`,
+      `📧 *Email:* ${form.email.trim()}`,
+      form.company.trim() ? `🏢 *Company / Org:* ${form.company.trim()}` : null,
+      `📌 *Subject:* ${form.subject.trim()}`,
+      '━━━━━━━━━━━━━━━━━━━━━',
+      '💬 *Message:*',
+      form.message.trim(),
+      '━━━━━━━━━━━━━━━━━━━━━',
+      '✨ *Sent via Mayilraj Portfolio*'
+    ].filter(Boolean).join('\n')
 
+    const whatsappUrl = `https://wa.me/${targetPhone}?text=${encodeURIComponent(whatsappMessage)}`
+
+    // Fire background backup dispatch to backend if available
+    fetch('/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(form),
+    }).catch(() => {})
+
+    // Open WhatsApp directly
     try {
-      const res = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
-      })
-      if (res.ok) {
-        setStatus('Message dispatched successfully! I will get back to you shortly.')
-        setIsError(false)
-        setForm({ name: '', email: '', company: '', subject: '', message: '' })
-      } else {
-        const data = await res.json()
-        setStatus(data.error || 'Failed to send message.')
-        setIsError(true)
+      const newTab = window.open(whatsappUrl, '_blank', 'noopener,noreferrer')
+      if (!newTab || newTab.closed || typeof newTab.closed === 'undefined') {
+        window.location.href = whatsappUrl
       }
-    } catch {
-      // Mailto Fallback
-      const body = encodeURIComponent(`Name: ${form.name}\nEmail: ${form.email}\nCompany: ${form.company || 'N/A'}\n\n${form.message}`)
-      window.location.href = `mailto:${personalInfo.email}?subject=${encodeURIComponent(form.subject)}&body=${body}`
-      setStatus('Opening your email client to send message...')
+      setStatus('Opening WhatsApp... Your message has been prepared for +91 7397532574!')
       setIsError(false)
+      setForm({ name: '', email: '', company: '', subject: '', message: '' })
+    } catch {
+      window.location.href = whatsappUrl
     }
   }
 
@@ -247,8 +259,8 @@ export default function Contact() {
                   </h3>
                   <div className="space-y-4">
                     {[
-                      { icon: 'mail-line', label: 'Email', value: personalInfo.email, href: `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(personalInfo.email)}` },
                       { icon: 'phone-line', label: 'Phone', value: personalInfo.phone, href: `tel:${personalInfo.phone}` },
+                      { icon: 'mail-line', label: 'Email', value: personalInfo.email, href: `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(personalInfo.email)}` },
                       { icon: 'map-pin-2-line', label: 'Location', value: personalInfo.location, href: null }
                     ].map((item, i) => (
                       <div key={i} className="flex items-start gap-3 group">

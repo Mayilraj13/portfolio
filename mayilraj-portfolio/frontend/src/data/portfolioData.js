@@ -3,6 +3,9 @@ export const personalInfo = {
   title: 'AI Full-Stack Developer & Software Engineer',
   email: 'mayilraj1314@gmail.com',
   phone: '+91 7397532574',
+  whatsapp: '+91 7397532574',
+  whatsappNumber: '917397532574',
+  whatsappUrl: 'https://wa.me/917397532574',
   location: 'Tuticorin, Tamil Nadu, India',
   github: 'https://github.com/Mayilraj13',
   linkedin: 'https://www.linkedin.com/in/mayilraj13/',
@@ -10,7 +13,7 @@ export const personalInfo = {
   photo: '/pic.jpg',
   tagline: 'Building scalable full-stack applications powered by AI — from intelligent dashboards to production-ready MERN platforms — with 3 internships turning real-world ideas into working software.',
   shortBio: 'SDE Intern @ Ibee Analytics · Web Developer Intern @ Hapus Infotech · Full-Stack & AI Developer',
-  badges: ['React', 'Node.js', 'MongoDB', 'Express.js', 'Python', 'Django', 'AI / ML'],
+  badges: ['React', 'Node.js', 'MongoDB', 'Express.js', 'Python', 'Django'],
   stats: [
     { value: '1', label: 'Patent Published' },
     { value: '5+', label: 'Projects' },

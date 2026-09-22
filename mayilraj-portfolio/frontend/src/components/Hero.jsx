@@ -8,7 +8,6 @@ const techBadges = [
   { label: 'Express.js', border: 'border-gray-500/30 text-gray-300 bg-gray-900/40' },
   { label: 'Python', border: 'border-amber-500/30 text-amber-400 bg-amber-950/20' },
   { label: 'Django', border: 'border-emerald-500/30 text-emerald-400 bg-emerald-950/20' },
-  { label: 'AI / ML', border: 'border-indigo-500/40 text-indigo-300 bg-indigo-950/30 shadow-[0_0_10px_rgba(99,102,241,0.2)]' },
 ]
 
 export default function Hero() {
