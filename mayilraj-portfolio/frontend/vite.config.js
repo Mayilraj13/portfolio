@@ -7,7 +7,11 @@ export default defineConfig({
   server: {
     port: 5173,
     proxy: {
-      '/api': 'http://localhost:3001'
+      '/api': {
+        target: 'https://mayilraj-portfolio-backend.onrender.com',
+        changeOrigin: true,
+        secure: false
+      }
     }
   }
 })

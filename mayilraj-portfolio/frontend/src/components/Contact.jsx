@@ -1,12 +1,19 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { personalInfo } from '../data/portfolioData'
+
+const API_BASE = import.meta.env.VITE_API_URL || 'https://mayilraj-portfolio-backend.onrender.com'
 
 export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', company: '', subject: '', message: '' })
   const [status, setStatus] = useState('')
   const [isError, setIsError] = useState(false)
   const [errors, setErrors] = useState({})
+
+  // Pre-warm the Render backend container (handles Render free tier spin-down)
+  useEffect(() => {
+    fetch(`${API_BASE}/api/health`).catch(() => {})
+  }, [])
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value })
@@ -53,7 +60,7 @@ export default function Contact() {
     const whatsappUrl = `https://wa.me/${targetPhone}?text=${encodeURIComponent(whatsappMessage)}`
 
     // Fire background backup dispatch to backend if available
-    fetch('/api/contact', {
+    fetch(`${API_BASE}/api/contact`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(form),

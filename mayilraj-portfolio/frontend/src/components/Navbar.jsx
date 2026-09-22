@@ -65,25 +65,18 @@ export default function Navbar() {
       }`}>
         <div className="container mx-auto px-4 sm:px-6 flex justify-between items-center">
           
-          {/* Monogram MR Logo mark */}
+          {/* Brand Logo in Circular Frame */}
           <button 
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="flex items-center gap-2.5 focus:outline-none group cursor-pointer"
+            className="flex items-center focus:outline-none group cursor-pointer"
             aria-label="Mayilraj R - Home"
           >
-            <div className="relative w-10 h-10 rounded-xl bg-gradient-to-br from-[#1c1c2b] to-[#12121c] border border-white/10 group-hover:border-indigo-500/50 flex items-center justify-center transition-all duration-300 shadow-[0_0_15px_rgba(99,102,241,0.15)] group-hover:shadow-[0_0_20px_rgba(99,102,241,0.35)]">
-              <span className="font-['Space_Grotesk'] font-bold text-base bg-gradient-to-r from-indigo-300 via-indigo-400 to-indigo-500 bg-clip-text text-transparent">
-                MR
-              </span>
-              <span className="absolute -top-0.5 -right-0.5 w-2 h-2 rounded-full bg-indigo-500 animate-pulse" />
-            </div>
-            <div className="hidden lg:flex flex-col text-left">
-              <span className="text-sm font-semibold text-white group-hover:text-indigo-300 transition-colors font-['Space_Grotesk']">
-                Mayilraj R
-              </span>
-              <span className="text-[11px] text-gray-400 -mt-0.5">
-                AI & Full-Stack
-              </span>
+            <div className="relative w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-black border border-white/20 group-hover:border-indigo-500/60 transition-all duration-300 overflow-hidden shadow-[0_0_15px_rgba(0,0,0,0.6)] group-hover:shadow-[0_0_20px_rgba(99,102,241,0.35)] p-0.5 flex items-center justify-center">
+              <img 
+                src="/mr-logo.png" 
+                alt="Mayilraj R Logo" 
+                className="w-full h-full object-cover rounded-full group-hover:scale-105 transition-transform duration-300"
+              />
             </div>
           </button>
 

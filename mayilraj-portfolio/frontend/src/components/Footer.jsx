@@ -11,8 +11,8 @@ export default function Footer() {
           
           {/* Brand & Title */}
           <div className="text-center md:text-left flex items-center gap-3">
-            <div className="w-9 h-9 rounded-xl bg-[#141422] border border-white/10 flex items-center justify-center font-bold text-indigo-400 font-['Space_Grotesk'] text-sm shadow-inner">
-              MR
+            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-black border border-white/15 overflow-hidden p-0.5 flex items-center justify-center shadow-inner">
+              <img src="/mr-logo.png" alt="Mayilraj R Logo" className="w-full h-full object-cover rounded-full" />
             </div>
             <div>
               <a 
