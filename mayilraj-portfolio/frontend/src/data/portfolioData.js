@@ -499,7 +499,7 @@ export const experience = [
     company: 'Hapus Infotech',
     period: 'Jul 2025 – Aug 2025',
     type: 'Internship',
-    location: 'Tiruchirappalli, Tamil Nadu (Remote)',
+    location: 'Tiruchirappalli, Tamil Nadu (Onsite)',
     logo: '/hapus-logo.png',
     icon: 'layout-line',
     color: 'orange',
