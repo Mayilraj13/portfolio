@@ -90,6 +90,7 @@ function CertCard({ cert }) {
 function CertSection({ title, icon, color, items }) {
   if (!items || items.length === 0) return null
   const c = colorMap[color] || colorMap.indigo
+  const marqueeItems = items.length === 1 ? [...items, ...items, ...items, ...items] : [...items, ...items]
 
   return (
     <div className="mb-12 sm:mb-16 max-w-6xl mx-auto">
@@ -101,7 +102,20 @@ function CertSection({ title, icon, color, items }) {
           {title}
         </h3>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+
+      {/* Mobile: Auto-scrolling right-to-left slider */}
+      <div className="sm:hidden overflow-hidden -mx-4 px-4">
+        <div className="flex w-max gap-4 animate-cert-marquee">
+          {marqueeItems.map((cert, i) => (
+            <div key={i} className="w-[270px] flex-shrink-0">
+              <CertCard cert={cert} />
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Tablet & Desktop: Static grid */}
+      <div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
         {items.map((cert, i) => (
           <CertCard key={i} cert={cert} />
         ))}

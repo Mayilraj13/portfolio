@@ -38,3 +38,21 @@
     color: #ffffff;
   }
 }
+
+@keyframes cert-marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-cert-marquee {
+  animation: cert-marquee 24s linear infinite;
+}
+
+.animate-cert-marquee:hover,
+.animate-cert-marquee:active {
+  animation-play-state: paused;
+}

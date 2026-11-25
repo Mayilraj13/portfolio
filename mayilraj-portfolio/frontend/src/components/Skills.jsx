@@ -64,16 +64,16 @@ function SkillCard({ item }) {
   return (
     <motion.div 
       whileHover={{ y: -3, scale: 1.02 }}
-      className="bg-[#12121c] rounded-2xl p-4 border border-white/10 hover:border-indigo-500/50 transition-all duration-300 hover:shadow-[0_8px_24px_rgba(99,102,241,0.15)] flex items-center gap-3.5 group cursor-default"
+      className="bg-[#12121c] rounded-2xl p-3 sm:p-4 border border-white/10 hover:border-indigo-500/50 transition-all duration-300 hover:shadow-[0_8px_24px_rgba(99,102,241,0.15)] flex flex-col sm:flex-row items-center sm:items-center text-center sm:text-left gap-2 sm:gap-3.5 group cursor-default"
     >
-      <div className="w-11 h-11 flex-shrink-0 flex items-center justify-center rounded-xl bg-[#1a1a28] border border-white/[0.08] group-hover:border-indigo-500/30 transition-colors p-2">
+      <div className="w-10 h-10 sm:w-11 sm:h-11 flex-shrink-0 flex items-center justify-center rounded-xl bg-[#1a1a28] border border-white/[0.08] group-hover:border-indigo-500/30 transition-colors p-2">
         <SkillIcon item={item} size="lg" />
       </div>
       <div className="min-w-0">
-        <h4 className="text-sm sm:text-base font-bold text-white group-hover:text-indigo-300 transition-colors leading-tight font-['Plus_Jakarta_Sans']">
+        <h4 className="text-xs sm:text-base font-bold text-white group-hover:text-indigo-300 transition-colors leading-tight font-['Plus_Jakarta_Sans']">
           {item.name}
         </h4>
-        {item.sub && <p className="text-xs text-gray-400 mt-0.5 truncate">{item.sub}</p>}
+        {item.sub && <p className="hidden sm:block text-xs text-gray-400 mt-0.5 truncate">{item.sub}</p>}
       </div>
     </motion.div>
   )
@@ -154,8 +154,8 @@ export default function Skills() {
                 ) : (
                   <div className={`grid gap-3 sm:gap-4 ${
                     cat.items.length === 3
-                      ? 'grid-cols-1 sm:grid-cols-3'
-                      : 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-4'
+                      ? 'grid-cols-2 sm:grid-cols-3'
+                      : 'grid-cols-2 sm:grid-cols-2 lg:grid-cols-4'
                   }`}>
                     {cat.items.map((item) => (
                       <SkillCard key={item.name} item={item} />

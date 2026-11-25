@@ -74,14 +74,14 @@ function ProjectCard({ project }) {
       </div>
 
       {/* Content Container */}
-      <div className="p-4 sm:p-5 flex flex-col flex-1">
+      <div className="p-3 sm:p-5 flex flex-col flex-1">
         {/* Title */}
-        <h3 className="text-base sm:text-lg font-bold text-neutral-900 mb-1.5 leading-snug font-['Plus_Jakarta_Sans'] group-hover:text-indigo-600 transition-colors">
+        <h3 className="text-sm sm:text-lg font-bold text-neutral-900 mb-1.5 leading-snug font-['Plus_Jakarta_Sans'] group-hover:text-indigo-600 transition-colors">
           {project.title}
         </h3>
 
         {/* Summary */}
-        <p className="text-xs sm:text-sm text-neutral-600 mb-3 leading-relaxed line-clamp-2">
+        <p className="text-[11px] sm:text-sm text-neutral-600 mb-3 leading-relaxed line-clamp-2">
           {project.summary || project.description}
         </p>
 
@@ -208,8 +208,8 @@ export default function Projects() {
           </div>
         </div>
 
-        {/* Projects 3-Column Responsive Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 max-w-7xl mx-auto">
+        {/* Projects Responsive Grid (2 columns on mobile, 3 on desktop) */}
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 max-w-7xl mx-auto">
           {filteredProjects.map((p) => (
             <ProjectCard
               key={p.title}
