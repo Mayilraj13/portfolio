@@ -10,7 +10,7 @@ export const personalInfo = {
   github: 'https://github.com/Mayilraj13',
   linkedin: 'https://www.linkedin.com/in/mayilraj13/',
   resume: '/Mayilraj_R_Resume_.pdf',
-  photo: '/pic.jpg',
+  photo: '/hero-photo.jpg',
   tagline: 'Building scalable full-stack applications powered by AI — from intelligent dashboards to production-ready MERN platforms — with 3 internships turning real-world ideas into working software.',
   shortBio: 'SDE Intern @ Ibee Analytics · Web Developer Intern @ Hapus Infotech · Full-Stack & AI Developer',
   badges: ['React', 'Node.js', 'MongoDB', 'Express.js', 'Python', 'Django'],
@@ -54,7 +54,6 @@ export const skills = {
         { name: 'React.js',    icon: 'reactjs-line',     color: 'blue',   level: 90, label: 'Advanced',      sub: 'Hooks, Context, React Router' },
         { name: 'HTML5',       icon: 'html5-line',       color: 'orange', level: 95, label: 'Expert',        sub: 'Semantic, Accessible Markup' },
         { name: 'CSS3',        icon: 'css3-line',        color: 'blue',   level: 90, label: 'Advanced',      sub: 'Flexbox, Grid, Animations' },
-        { name: 'JavaScript',  icon: 'javascript-line',  color: 'yellow', level: 88, label: 'Advanced',      sub: 'ES6+, Async/Await, DOM' },
         { name: 'Tailwind CSS',icon: 'wind-line',        color: 'teal',   level: 85, label: 'Proficient',    sub: 'Utility-first Styling' },
         { name: 'Bootstrap',   icon: 'bootstrap-line',   color: 'purple', level: 88, label: 'Advanced',      sub: 'Responsive Components' },
       ],
@@ -65,7 +64,6 @@ export const skills = {
       color: 'green',
       items: [
         { name: 'Node.js',     icon: 'nodejs-line',      color: 'green',  level: 87, label: 'Advanced',      sub: 'REST APIs, Middleware' },
-        { name: 'Express.js',  icon: 'server-line',      color: 'gray',   level: 88, label: 'Advanced',      sub: 'Routing, Auth, CORS' },
         { name: 'Django',      icon: 'database-line',    color: 'green',  level: 82, label: 'Proficient',    sub: 'ORM, Views, DRF' },
         { name: 'Flask',       icon: 'python-line',      color: 'blue',   level: 80, label: 'Proficient',    sub: 'Lightweight APIs' },
       ],
@@ -85,7 +83,6 @@ export const skills = {
       icon: 'code-s-slash-line',
       color: 'yellow',
       items: [
-        { name: 'JavaScript',  icon: 'javascript-line',  color: 'yellow', level: 88, label: 'Advanced',      sub: 'Primary Language' },
         { name: 'Python',      icon: 'python-line',      color: 'blue',   level: 85, label: 'Advanced',      sub: 'Scripting, ML, APIs' },
         { name: 'Java',        icon: 'cup-line',         color: 'red',    level: 70, label: 'Intermediate',  sub: 'OOP, Core Concepts' },
         { name: 'C',           icon: 'code-line',        color: 'gray',   level: 72, label: 'Intermediate',  sub: 'Procedural, Memory Mgmt' },
@@ -111,7 +108,6 @@ export const skills = {
       small: true,
       items: [
         { name: 'VS Code',      icon: 'code-box-line',    color: 'blue' },
-        { name: 'Postman',      icon: 'terminal-box-line',color: 'orange' },
         { name: 'NPM',          icon: 'npmjs-line',       color: 'red' },
         { name: 'Canva',        icon: 'image-edit-line',  color: 'purple' },
         { name: 'Arduino IDE',  icon: 'terminal-box-line',color: 'teal' },

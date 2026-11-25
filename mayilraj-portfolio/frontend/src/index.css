@@ -12,8 +12,8 @@
   --color-accent-light: #818cf8;
   --color-accent-glow: rgba(99, 102, 241, 0.2);
 
-  --font-heading: 'Space Grotesk', system-ui, -apple-system, sans-serif;
-  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-heading: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-body: 'DM Sans', system-ui, -apple-system, sans-serif;
 }
 
 @layer base {

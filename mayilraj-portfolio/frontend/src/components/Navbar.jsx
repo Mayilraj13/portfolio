@@ -65,10 +65,10 @@ export default function Navbar() {
       }`}>
         <div className="container mx-auto px-4 sm:px-6 flex justify-between items-center">
           
-          {/* Brand Logo in Circular Frame */}
+          {/* Brand Logo + Name */}
           <button 
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="flex items-center focus:outline-none group cursor-pointer"
+            className="flex items-center gap-3 focus:outline-none group cursor-pointer"
             aria-label="Mayilraj R - Home"
           >
             <div className="relative w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-black border border-white/20 group-hover:border-indigo-500/60 transition-all duration-300 overflow-hidden shadow-[0_0_15px_rgba(0,0,0,0.6)] group-hover:shadow-[0_0_20px_rgba(99,102,241,0.35)] p-0.5 flex items-center justify-center">
@@ -78,6 +78,9 @@ export default function Navbar() {
                 className="w-full h-full object-cover rounded-full group-hover:scale-105 transition-transform duration-300"
               />
             </div>
+            <span className="font-['Playfair_Display'] italic font-semibold text-lg sm:text-xl tracking-wide text-white group-hover:text-white/90 transition-colors">
+              Mayilraj R
+            </span>
           </button>
 
           {/* Frosted Glass Floating Navbar (Desktop & Tablet) */}

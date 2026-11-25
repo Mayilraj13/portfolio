@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { skills } from '../data/portfolioData'
+import Particles from './Particles'
 
 const logoMap = {
   'React.js':       'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg',
@@ -69,7 +70,7 @@ function SkillCard({ item }) {
         <SkillIcon item={item} size="lg" />
       </div>
       <div className="min-w-0">
-        <h4 className="text-sm sm:text-base font-bold text-white group-hover:text-indigo-300 transition-colors leading-tight font-['Space_Grotesk']">
+        <h4 className="text-sm sm:text-base font-bold text-white group-hover:text-indigo-300 transition-colors leading-tight font-['Plus_Jakarta_Sans']">
           {item.name}
         </h4>
         {item.sub && <p className="text-xs text-gray-400 mt-0.5 truncate">{item.sub}</p>}
@@ -87,7 +88,7 @@ function ToolCard({ item }) {
       <div className="w-10 h-10 flex items-center justify-center rounded-xl bg-[#1a1a28] border border-white/[0.08] group-hover:border-indigo-500/30 transition-colors p-2">
         <SkillIcon item={item} size="sm" />
       </div>
-      <span className="text-xs font-semibold text-gray-300 group-hover:text-white transition-colors leading-tight font-['Space_Grotesk']">
+      <span className="text-xs font-semibold text-gray-300 group-hover:text-white transition-colors leading-tight font-['Plus_Jakarta_Sans']">
         {item.name}
       </span>
     </motion.div>
@@ -96,15 +97,28 @@ function ToolCard({ item }) {
 
 export default function Skills() {
   return (
-    <section id="skills" className="pt-8 pb-16 sm:pt-10 sm:pb-20 bg-[#0a0a0f] relative scroll-mt-20">
+    <section id="skills" className="pt-8 pb-16 sm:pt-10 sm:pb-20 bg-[#0a0a0f] relative overflow-hidden scroll-mt-20">
+      {/* Interactive WebGL Particles Background */}
+      <div className="absolute inset-0 pointer-events-none">
+        <Particles
+          particleCount={220}
+          particleSpread={10}
+          speed={0.12}
+          particleColors={['#ffffff', '#818cf8', '#a5b4fc']}
+          moveParticlesOnHover
+          particleHoverFactor={1}
+          particleBaseSize={90}
+          glow={0.5}
+          twinkle={0.3}
+          hoverEffect="parallax"
+        />
+      </div>
+
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
 
         {/* Heading */}
         <div className="text-center mb-8 sm:mb-10">
-          <span className="text-xs uppercase tracking-widest text-indigo-400 font-bold mb-2 block font-['Space_Grotesk']">
-            Technical Stack
-          </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white mb-4 tracking-tight font-['Space_Grotesk']">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white mb-4 tracking-tight font-['Plus_Jakarta_Sans']">
             Skills &amp; Technologies
           </h2>
           <div className="w-20 h-1 bg-gradient-to-r from-indigo-500 to-purple-500 mx-auto rounded-full mb-4" />
@@ -122,7 +136,7 @@ export default function Skills() {
                 {/* Group Header */}
                 <div className={`flex items-center gap-3 mb-5 pl-3.5 border-l-4 ${accentClass.split(' ')[0]}`}>
                   <i className={`ri-${cat.icon} text-lg ${accentClass.split(' ')[1]}`} />
-                  <h3 className="text-lg sm:text-xl font-bold text-white font-['Space_Grotesk']">
+                  <h3 className="text-lg sm:text-xl font-bold text-white font-['Plus_Jakarta_Sans']">
                     {cat.title}
                   </h3>
                   <span className="text-xs text-gray-500 font-medium">

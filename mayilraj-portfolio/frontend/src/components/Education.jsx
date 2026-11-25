@@ -33,10 +33,7 @@ export default function Education() {
 
         {/* Section Header */}
         <div className="text-center mb-8 sm:mb-10">
-          <span className="text-xs uppercase tracking-widest text-indigo-400 font-bold mb-2 block font-['Space_Grotesk']">
-            Academic Background
-          </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white mb-4 tracking-tight font-['Space_Grotesk']">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white mb-4 tracking-tight font-['Plus_Jakarta_Sans']">
             Education
           </h2>
           <div className="w-20 h-1 bg-gradient-to-r from-indigo-500 to-purple-500 mx-auto rounded-full mb-4" />
@@ -70,7 +67,7 @@ export default function Education() {
                   {/* Header Row */}
                   <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 pb-4 border-b border-white/[0.08]">
                     <div>
-                      <h3 className="text-lg sm:text-2xl font-bold text-white leading-tight font-['Space_Grotesk']">
+                      <h3 className="text-lg sm:text-2xl font-bold text-white leading-tight font-['Plus_Jakarta_Sans']">
                         {edu.degree}
                       </h3>
                       <h4 className="text-sm sm:text-base font-semibold text-indigo-300 mt-1">
@@ -86,12 +83,12 @@ export default function Education() {
 
                     {/* CGPA Badge & Progress Ring / Tag */}
                     <div className="flex sm:flex-col items-start sm:items-end gap-2.5 flex-shrink-0">
-                      <span className="text-[11px] sm:text-xs px-2.5 py-1 rounded-lg font-medium bg-[#191928] text-gray-300 border border-white/[0.06] flex items-center gap-1.5 font-['Space_Grotesk']">
+                      <span className="text-[11px] sm:text-xs px-2.5 py-1 rounded-lg font-medium bg-[#191928] text-gray-300 border border-white/[0.06] flex items-center gap-1.5 font-['Plus_Jakarta_Sans']">
                         <i className="ri-calendar-line text-indigo-400"></i> {edu.period}
                       </span>
                       
                       {/* Styled CGPA Score Badge */}
-                      <div className={`px-3 py-1.5 rounded-xl border font-bold flex items-center gap-2 ${c.badge} font-['Space_Grotesk'] shadow-sm`}>
+                      <div className={`px-3 py-1.5 rounded-xl border font-bold flex items-center gap-2 ${c.badge} font-['Plus_Jakarta_Sans'] shadow-sm`}>
                         <i className="ri-award-line text-sm"></i>
                         <span className="text-xs sm:text-sm">{edu.score.label}: {edu.score.value}</span>
                       </div>
@@ -110,7 +107,7 @@ export default function Education() {
                       >
                         {/* Coursework Skill Badges */}
                         <div>
-                          <h5 className="text-[11px] uppercase tracking-wider font-bold text-indigo-400 mb-2.5 font-['Space_Grotesk']">
+                          <h5 className="text-[11px] uppercase tracking-wider font-bold text-indigo-400 mb-2.5 font-['Plus_Jakarta_Sans']">
                             Relevant Coursework
                           </h5>
                           <div className="flex flex-wrap gap-1.5 sm:gap-2">
@@ -127,7 +124,7 @@ export default function Education() {
 
                         {/* Academic Highlights */}
                         <div className="mt-5">
-                          <h5 className="text-[11px] uppercase tracking-wider font-bold text-emerald-400 mb-2.5 font-['Space_Grotesk']">
+                          <h5 className="text-[11px] uppercase tracking-wider font-bold text-emerald-400 mb-2.5 font-['Plus_Jakarta_Sans']">
                             Academic Highlights
                           </h5>
                           <ul className="space-y-2">
@@ -144,7 +141,7 @@ export default function Education() {
                         {edu.project && (
                           <div className="mt-5 p-4 rounded-xl bg-[#181826] border border-white/[0.08]">
                             <div className="flex items-center justify-between gap-2 mb-1.5">
-                              <span className="inline-flex items-center gap-1.5 text-[10px] uppercase tracking-wider font-bold text-gray-400 font-['Space_Grotesk']">
+                              <span className="inline-flex items-center gap-1.5 text-[10px] uppercase tracking-wider font-bold text-gray-400 font-['Plus_Jakarta_Sans']">
                                 <i className="ri-folder-line text-indigo-400"></i> Major Academic Project
                               </span>
                               {edu.project.github && (
@@ -159,7 +156,7 @@ export default function Education() {
                                 </a>
                               )}
                             </div>
-                            <h6 className="text-xs sm:text-sm font-bold text-white mb-1 font-['Space_Grotesk']">
+                            <h6 className="text-xs sm:text-sm font-bold text-white mb-1 font-['Plus_Jakarta_Sans']">
                               {edu.project.title}
                             </h6>
                             <p className="text-xs sm:text-sm text-gray-400 leading-normal">
@@ -174,7 +171,7 @@ export default function Education() {
                   {/* Toggle Button */}
                   <button
                     onClick={(e) => { e.stopPropagation(); toggleExpand(i); }}
-                    className="w-full text-center mt-4 text-xs sm:text-sm text-indigo-400 hover:text-indigo-300 font-semibold flex items-center justify-center gap-1 cursor-pointer pt-3 border-t border-white/[0.04] font-['Space_Grotesk']"
+                    className="w-full text-center mt-4 text-xs sm:text-sm text-indigo-400 hover:text-indigo-300 font-semibold flex items-center justify-center gap-1 cursor-pointer pt-3 border-t border-white/[0.04] font-['Plus_Jakarta_Sans']"
                   >
                     <span>{isExpanded ? 'Collapse Details' : 'View Coursework & Highlights'}</span>
                     <i className={`ri-arrow-${isExpanded ? 'up' : 'down'}-s-line text-base`}></i>

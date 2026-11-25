@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
-import { personalInfo, patent } from '../data/portfolioData'
+import { personalInfo } from '../data/portfolioData'
+import ShapeGrid from './ShapeGrid'
 
 const techBadges = [
   { label: 'React', border: 'border-cyan-500/30 text-cyan-400 bg-cyan-950/20' },
@@ -14,7 +15,7 @@ export default function Hero() {
   const scrollTo = (id) => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
 
   return (
-    <section id="home" className="relative min-h-[92vh] flex items-center justify-center pt-32 sm:pt-40 md:pt-44 pb-16 sm:pb-24 overflow-hidden bg-[#0a0a0f]">
+    <section id="home" className="relative min-h-screen flex items-center justify-center pt-24 pb-14 sm:pt-28 sm:pb-16 overflow-hidden bg-[#0a0a0f]">
       {/* ── Background: Subtle Gradient Mesh & Dot Matrix ── */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         {/* Animated Radial Ambient Glows */}
@@ -39,14 +40,25 @@ export default function Hero() {
           className="absolute top-[40%] right-[10%] w-[500px] h-[500px] rounded-full bg-gradient-to-bl from-indigo-500/20 to-cyan-500/10 blur-[140px]" 
         />
 
-        {/* Subtle Tech Dot Grid Pattern */}
-        <div 
-          className="absolute inset-0 opacity-[0.04]"
-          style={{
-            backgroundImage: `radial-gradient(circle at 1px 1px, #ffffff 1px, transparent 0)`,
-            backgroundSize: '32px 32px'
-          }}
-        />
+        {/* Interactive 3D ShapeGrid Background */}
+        <div style={{ width: '100%', minHeight: '600px', height: '100%', position: 'relative' }}>
+          <ShapeGrid
+            shape="tile"
+            direction="up"
+            lineColor="#2a2734"
+            hoverColor="#ffffff"
+            hoverFillColor="#ffffff"
+            fillOpacity={0.15}
+            cellSize={40}
+            speed={0.3}
+            tiltX={28}
+            tiltY={-22}
+            rainbow
+            radius={2.2}
+            trail={1.2}
+            glow={0.5}
+          />
+        </div>
 
         {/* Soft bottom fade to blend with next section */}
         <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#0a0a0f] to-transparent" />
@@ -58,46 +70,18 @@ export default function Hero() {
 
             {/* ── LEFT: Hero Content ── */}
             <motion.div 
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: 'easeOut' }}
+              initial={{ opacity: 0, x: -100 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
               className="flex-1 text-center lg:text-left"
             >
-              {/* Trust Signal Badges */}
-              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2.5 mb-6">
-                {/* Patent Badge Chip (Major Differentiator) */}
-                <motion.div 
-                  whileHover={{ scale: 1.03 }}
-                  onClick={() => scrollTo('about')}
-                  className="cursor-pointer inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-amber-500/15 via-indigo-500/15 to-purple-500/15 border border-amber-500/30 text-amber-300 text-xs sm:text-sm font-medium shadow-[0_0_15px_rgba(245,158,11,0.15)] hover:border-amber-400/60 transition-colors"
-                >
-                  <span className="text-sm">🏆</span>
-                  <span className="font-semibold text-white">Patent Published:</span>
-                  <span className="text-amber-300/90 font-mono text-[11px] sm:text-xs">IriSafe</span>
-                </motion.div>
-
-                {/* Availability status */}
-                <div className="inline-flex items-center gap-2 bg-emerald-950/40 text-emerald-400 border border-emerald-500/30 px-3 py-1.5 rounded-full text-xs font-medium">
-                  <span className="relative flex h-2 w-2">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-                  </span>
-                  Open to Full-Time SDE / AI Roles
-                </div>
-              </div>
-
               {/* Main Headline */}
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white mb-3 tracking-tight font-['Space_Grotesk'] leading-[1.12]">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white mb-5 tracking-tight font-['Plus_Jakarta_Sans'] leading-[1.12]">
                 Hi, I'm{' '}
                 <span className="bg-gradient-to-r from-white via-indigo-200 to-indigo-400 bg-clip-text text-transparent">
                   {personalInfo.name}
                 </span>
               </h1>
-
-              {/* Professional Title */}
-              <h2 className="text-xl sm:text-2xl font-semibold text-indigo-400/90 mb-5 font-['Space_Grotesk'] tracking-wide">
-                {personalInfo.title}
-              </h2>
 
               {/* Value Proposition */}
               <p className="text-base sm:text-lg text-gray-300/90 mb-6 leading-relaxed max-w-xl mx-auto lg:mx-0 font-normal">
@@ -125,7 +109,7 @@ export default function Hero() {
                   whileHover={{ scale: 1.04, boxShadow: '0 0 25px rgba(99, 102, 241, 0.5)' }}
                   whileTap={{ scale: 0.98 }}
                   onClick={() => scrollTo('projects')}
-                  className="inline-flex items-center gap-2 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold px-6 py-3.5 rounded-xl transition-all shadow-[0_0_20px_rgba(99,102,241,0.35)] cursor-pointer text-sm sm:text-base font-['Space_Grotesk']"
+                  className="inline-flex items-center gap-2 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold px-6 py-3.5 rounded-xl transition-all shadow-[0_0_20px_rgba(99,102,241,0.35)] cursor-pointer text-sm sm:text-base font-['Plus_Jakarta_Sans']"
                 >
                   <i className="ri-folder-open-line text-lg" />
                   <span>View Projects</span>
@@ -137,7 +121,7 @@ export default function Hero() {
                   whileTap={{ scale: 0.98 }}
                   href={personalInfo.resume}
                   download="MAYILRAJ_R_Resume"
-                  className="inline-flex items-center gap-2 bg-[#12121c]/80 hover:bg-[#191928] text-gray-200 hover:text-white border border-white/10 hover:border-indigo-500/50 font-semibold px-6 py-3.5 rounded-xl transition-all shadow-md text-sm sm:text-base font-['Space_Grotesk'] cursor-pointer backdrop-blur-md"
+                  className="inline-flex items-center gap-2 bg-[#12121c]/80 hover:bg-[#191928] text-gray-200 hover:text-white border border-white/10 hover:border-indigo-500/50 font-semibold px-6 py-3.5 rounded-xl transition-all shadow-md text-sm sm:text-base font-['Plus_Jakarta_Sans'] cursor-pointer backdrop-blur-md"
                 >
                   <i className="ri-file-download-line text-lg text-indigo-400" />
                   <span>Download Resume</span>
@@ -195,18 +179,18 @@ export default function Hero() {
 
             {/* ── RIGHT: Profile Photo with Glowing Accent Frame ── */}
             <motion.div 
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.7, ease: 'easeOut', delay: 0.1 }}
+              initial={{ opacity: 0, x: 100, scale: 0.96 }}
+              animate={{ opacity: 1, x: 0, scale: 1 }}
+              transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
               className="flex-shrink-0 flex justify-center"
             >
               <div className="relative group">
                 {/* Glowing Outer Halo */}
-                <div className="absolute -inset-2 rounded-full bg-gradient-to-tr from-indigo-600 via-purple-600 to-cyan-500 opacity-40 blur-2xl group-hover:opacity-60 transition duration-500 animate-pulse" />
+                <div className="absolute -inset-2 rounded-2xl bg-gradient-to-tr from-indigo-600 via-purple-600 to-cyan-500 opacity-40 blur-2xl group-hover:opacity-60 transition duration-500 animate-pulse" />
                 
                 {/* Outer Ring */}
-                <div className="relative w-64 h-64 sm:w-72 sm:h-72 lg:w-80 lg:h-80 rounded-full p-1.5 bg-gradient-to-b from-indigo-500/40 via-white/10 to-transparent shadow-[0_0_50px_rgba(99,102,241,0.25)]">
-                  <div className="w-full h-full rounded-full overflow-hidden bg-[#12121c] border-2 border-white/10">
+                <div className="relative w-64 h-64 sm:w-72 sm:h-72 lg:w-80 lg:h-80 rounded-2xl p-1.5 bg-gradient-to-b from-indigo-500/40 via-white/10 to-transparent shadow-[0_0_50px_rgba(99,102,241,0.25)]">
+                  <div className="w-full h-full rounded-xl overflow-hidden bg-[#12121c] border-2 border-white/10">
                     <img
                       src={personalInfo.photo}
                       alt={`${personalInfo.name} — AI Full-Stack Developer`}
@@ -214,27 +198,11 @@ export default function Hero() {
                       onError={(e) => {
                         e.currentTarget.onerror = null
                         e.currentTarget.parentElement.innerHTML =
-                          '<div class="w-full h-full flex items-center justify-center bg-indigo-950/40 text-indigo-400 text-5xl font-bold font-[\'Space_Grotesk\']">MR</div>'
+                          '<div class="w-full h-full flex items-center justify-center bg-indigo-950/40 text-indigo-400 text-5xl font-bold font-[\'Plus_Jakarta_Sans\']">MR</div>'
                       }}
                     />
                   </div>
                 </div>
-
-                {/* Floating Experience Chip */}
-                <motion.div 
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.4 }}
-                  className="absolute -bottom-2 -left-2 sm:bottom-2 sm:-left-4 bg-[#12121c]/95 border border-white/15 px-3.5 py-2 rounded-2xl backdrop-blur-xl shadow-[0_8px_24px_rgba(0,0,0,0.5)] flex items-center gap-2.5"
-                >
-                  <div className="w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 flex items-center justify-center">
-                    <i className="ri-briefcase-4-line text-base"></i>
-                  </div>
-                  <div className="text-left">
-                    <div className="text-xs font-bold text-white font-['Space_Grotesk']">3 Internships</div>
-                    <div className="text-[10px] text-gray-400">SDE &amp; Web Dev</div>
-                  </div>
-                </motion.div>
               </div>
             </motion.div>
 

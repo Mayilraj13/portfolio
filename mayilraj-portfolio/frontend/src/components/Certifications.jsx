@@ -30,11 +30,11 @@ function CertCard({ cert }) {
       <div>
         {/* Top Header Row with Logo Badge */}
         <div className="flex items-start gap-3.5 mb-4">
-          <div className={`w-11 h-11 rounded-xl flex items-center justify-center font-bold text-sm ${c.iconBg} ${c.text} border flex-shrink-0 font-['Space_Grotesk'] shadow-inner`}>
+          <div className={`w-11 h-11 rounded-xl flex items-center justify-center font-bold text-sm ${c.iconBg} ${c.text} border flex-shrink-0 font-['Plus_Jakarta_Sans'] shadow-inner`}>
             {initials}
           </div>
           <div>
-            <h4 className="text-sm sm:text-base font-bold text-white leading-tight mb-1 font-['Space_Grotesk'] group-hover:text-indigo-300 transition-colors">
+            <h4 className="text-sm sm:text-base font-bold text-white leading-tight mb-1 font-['Plus_Jakarta_Sans'] group-hover:text-indigo-300 transition-colors">
               {cert.title}
             </h4>
             <p className="text-xs text-gray-400 font-medium">{cert.issuer}</p>
@@ -55,7 +55,7 @@ function CertCard({ cert }) {
 
         {/* Skills Covered (Badges) */}
         <div className="mb-4">
-          <p className="text-[10px] uppercase tracking-wider font-bold text-gray-500 mb-2 font-['Space_Grotesk']">
+          <p className="text-[10px] uppercase tracking-wider font-bold text-gray-500 mb-2 font-['Plus_Jakarta_Sans']">
             Key Competencies
           </p>
           <div className="flex flex-wrap gap-1.5">
@@ -77,7 +77,7 @@ function CertCard({ cert }) {
           href={cert.link} 
           target="_blank" 
           rel="noopener noreferrer"
-          className="inline-flex items-center justify-center gap-1.5 w-full py-2.5 px-3 rounded-xl text-xs font-semibold bg-indigo-600/20 hover:bg-indigo-600 text-indigo-300 hover:text-white border border-indigo-500/30 hover:border-indigo-500 transition-all cursor-pointer font-['Space_Grotesk']"
+          className="inline-flex items-center justify-center gap-1.5 w-full py-2.5 px-3 rounded-xl text-xs font-semibold bg-indigo-600/20 hover:bg-indigo-600 text-indigo-300 hover:text-white border border-indigo-500/30 hover:border-indigo-500 transition-all cursor-pointer font-['Plus_Jakarta_Sans']"
         >
           <span>Verify Credential</span>
           <i className="ri-external-link-line text-xs" />
@@ -97,7 +97,7 @@ function CertSection({ title, icon, color, items }) {
         <div className={`w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center ${c.iconBg} border rounded-xl mr-3 ${c.text}`}>
           <i className={`ri-${icon} text-lg`}></i>
         </div>
-        <h3 className="text-lg sm:text-xl font-bold text-white font-['Space_Grotesk'] tracking-tight">
+        <h3 className="text-lg sm:text-xl font-bold text-white font-['Plus_Jakarta_Sans'] tracking-tight">
           {title}
         </h3>
       </div>
@@ -117,10 +117,7 @@ export default function Certifications() {
         
         {/* Section Header */}
         <div className="text-center mb-8 sm:mb-10">
-          <span className="text-xs uppercase tracking-widest text-indigo-400 font-bold mb-2 block font-['Space_Grotesk']">
-            Credentials &amp; Expertise
-          </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white mb-4 tracking-tight font-['Space_Grotesk']">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white mb-4 tracking-tight font-['Plus_Jakarta_Sans']">
             Professional Certifications
           </h2>
           <div className="w-20 h-1 bg-gradient-to-r from-indigo-500 to-purple-500 mx-auto rounded-full mb-4" />
